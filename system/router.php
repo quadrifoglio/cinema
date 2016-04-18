@@ -109,11 +109,11 @@ class Router {
 				// Appel du callback de la route
 				$response = $cb($request);
 				if(!is_object($response)) {
-					return $response = new HttpResponse(200, null);
+					$response = new HttpResponse(200);
 				}
 
-				if($response->body != null) {
-					$response->body = ob_get_flush(); // Récupération du buffer
+				if($response->isEmpty()) {
+					$response->setBody(ob_get_clean()); // Récupération du buffer
 				}
 				else {
 					ob_end_flush();

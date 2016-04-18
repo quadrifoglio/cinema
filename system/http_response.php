@@ -19,13 +19,12 @@ class HttpResponse {
 		// TODO: Add missing values (https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
 	];
 
-	public $status;       // Code de statut HTTP (200, 404...)
-	public $headers = []; // En-têtes de réponse HTTP
-	public $body;         // Contenu de la réponse
+	private $status;       // Code de statut HTTP (200, 404...)
+	private $headers = []; // En-têtes de réponse HTTP
+	private $body = null;  // Contenu de la réponse
 
-	public function __construct($status, $body) {
+	public function __construct($status) {
 		$this->status = $status;
-		$this->body = $body;
 	}
 
 	/*
@@ -42,6 +41,14 @@ class HttpResponse {
 		return $this->headers[$name];
 	}
 
+	public function setBody($body) {
+		$this->body = $body;
+	}
+
+	public function isEmpty() {
+		return $this->body == null;
+	}
+
 	public function send() {
 		// Envoi de la "status line" HTTP
 		header("HTTP/1.1 " . $this->status . " " . HttpResponse::$statusMessage[$this->status]);
@@ -51,8 +58,8 @@ class HttpResponse {
 			header($name . ": " . $value);
 		}
 
-		// Envoi du "body" de la réponse HTTP, prévention XSS
-		echo htmlspecialchars($this->body, ENT_QUOTES, "UTF-8");
+		// Envoi du "body" de la réponse HTTP
+		echo $this->body;
 	}
 
 }
