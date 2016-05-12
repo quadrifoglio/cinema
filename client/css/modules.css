@@ -1,0 +1,130 @@
+.main-menu {
+	position: fixed;
+	display: inline-block;
+	width: 250px;
+	height: 100vh;
+
+	background-color: #e74c3c;
+}
+
+.main-menu-nav {
+	margin-top: 30px;
+
+	font-size: 28px;
+	font-family: "Roboto";
+}
+
+.main-menu-nav-item {
+	display: block;
+
+	color: #fff;
+	text-decoration: none;
+	padding-left: 10px;
+}
+
+.main-menu-nav-item:hover {
+	background-color: #fff;
+	color: #e74c3c;
+}
+
+.main-menu-form {
+	position: absolute;
+	width: 250px;
+	bottom: 0;
+	padding-top: 10px;
+}
+
+.main-menu-form-inputs {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.main-menu-form-inputs > * {
+	width: 100%;
+}
+
+.main-menu-form-title {
+	font-size: 28px;
+	color: #fff;
+}
+
+.main-menu-form-input {
+	display: block;
+
+	color: #fff;
+	background-color: #e74c3c;
+	border: none;
+	border-bottom: 1px solid white;
+	border-radius: 3px;
+	margin: 5px 0;
+	padding: 7px 7px;
+}
+
+.main-menu-form-submit {
+	width: 100%;
+	margin-top: 10px;
+	padding: 15px 0;
+
+	color: #fff;
+	background-color: #c0392b;
+	border: none;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.films {
+	margin-left: 250px;
+}
+
+.film {
+	display: block;
+	height: 340px;
+}
+
+.film-1 {
+	background-color: #3498db;
+	border-right: 12px solid #2980b9;
+}
+
+.film-2 {
+	background-color: #2980b9;
+	border-right: 12px solid #3498db;
+}
+
+.film-poster {
+	width: 228px;
+	height: inherit;
+
+	background-color: white;
+}
+
+.film-info {
+	position: relative;
+	display: inline-block;
+	height: inherit;
+	padding: 20px;
+
+	color: #fff;
+}
+
+.film-info-text {
+	margin-top: 25px;
+}
+
+.film-info-times {
+	display: inline;
+	position: absolute;
+	bottom: 20px;
+
+	list-style: none;
+}
+
+.film-info-time {
+	display: inline-block;
+
+	padding: 10px 15px;
+	border: 1px solid white;
+	font-weight: bold;
+	font-size: 15px;
+}
