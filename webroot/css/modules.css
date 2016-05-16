@@ -1,3 +1,14 @@
+/* Global components */
+.white-button {
+	display: inline-block;
+
+	padding: 10px 15px;
+	border: 1px solid white;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+/* Main menu (on the left) */
 .main-menu {
 	position: fixed;
 	display: inline-block;
@@ -55,7 +66,7 @@
 	background-color: #e74c3c;
 	border: none;
 	border-bottom: 1px solid white;
-	border-radius: 3px;
+	border-radius: 5px;
 	margin: 5px 0;
 	padding: 7px 7px;
 }
@@ -73,27 +84,28 @@
 	-moz-appearance: none;
 }
 
-.films {
+.main-content {
 	margin-left: 250px;
 }
 
+/* Homepage content (film list) */
 .film {
 	display: block;
-	height: 340px;
+	height: 441px;
 }
 
 .film-1 {
 	background-color: #3498db;
-	border-right: 12px solid #2980b9;
+	border-right: 18px solid #2980b9;
 }
 
 .film-2 {
 	background-color: #2980b9;
-	border-right: 12px solid #3498db;
+	border-right: 18px solid #3498db;
 }
 
 .film-poster {
-	width: 228px;
+	width: 300px;
 	height: inherit;
 
 	background-color: white;
@@ -101,30 +113,50 @@
 
 .film-info {
 	position: relative;
-	display: inline-block;
 	height: inherit;
-	padding: 20px;
+	margin-left: 300px;
+	padding: 20px 0 20px 20px;
 
 	color: #fff;
 }
 
-.film-info-text {
-	margin-top: 25px;
+.film-info-header {
+	margin-bottom: 25px;
+}
+
+.film-info-left {
+	width: 55%;
+}
+
+.film-info-text h2 {
+	margin-bottom: 15px;
 }
 
 .film-info-times {
-	display: inline;
-	position: absolute;
-	bottom: 20px;
+	width: 35%;
+	margin-left: 10%;
 
 	list-style: none;
 }
 
-.film-info-time {
-	display: inline-block;
+.film-info-times h2 {
+	margin-bottom: 10px;
+}
 
-	padding: 10px 15px;
-	border: 1px solid white;
-	font-weight: bold;
-	font-size: 15px;
+.film-info-time {
+	text-align: center;
+	margin: 5px 5px 5px 0;
+}
+
+.film-info-misc {
+	position: absolute;
+	display: inline-block;
+	max-width: 50%;
+
+	bottom: 20px;
+	left: 20px;
+}
+
+.film-info-misc .white-button {
+	margin-top: 12px;
 }
