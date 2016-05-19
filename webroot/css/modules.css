@@ -84,6 +84,7 @@
 	-moz-appearance: none;
 }
 
+/* Content */
 .main-content {
 	margin-left: 250px;
 }
@@ -163,6 +164,8 @@
 
 /* Film information page */
 .film-details {
+	display: inline-block;
+
 	padding: 20px;
 	border-right: 25px solid #2980b9;
 	color: #fff;

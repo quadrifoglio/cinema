@@ -15,5 +15,9 @@ $router->get("/film/{id}", function($request) {
 	render("views/film.php", ["id" => $id]);
 });
 
+$router->get("/admin", function($request) {
+	render("views/admin.php", [], false);
+});
+
 $response = $router->process(HttpRequest::get());
 $response->send();

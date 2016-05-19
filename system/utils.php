@@ -6,7 +6,7 @@ require_once "http_response.php";
  * Charger un fichier de "vue", charger les variables du tableau $vars
  * afin qu'elles soit accessible depuis la vue
  */
-function render($view, $vars = []) {
+function render($view, $vars = [], $base = true) {
 	if(isset($vars["view"])) {
 		unset($vars["view"]);
 	}
@@ -19,7 +19,8 @@ function render($view, $vars = []) {
 	}
 
 	extract($vars);
-	include "views/base.php";
+
+	if($base) include "views/base.php";
 }
 
 /*

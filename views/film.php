@@ -1,4 +1,4 @@
-<div class="film-details">
+<div class="film-details cb">
 	<div class="film-details-left left">
 		<h1>Titre du film</h1>
 

@@ -20,6 +20,14 @@
 	-moz-box-sizing: border-box;
 }
 
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+}
+
 h1, h2, h3, h4 {
 	font-family: "Roboto";
 	font-weight: normal;
@@ -35,6 +43,10 @@ h2 {
 
 h3 {
 	font-size: 21px;
+}
+
+tr {
+	border: 1px solid white;
 }
 
 ::-webkit-input-placeholder {
