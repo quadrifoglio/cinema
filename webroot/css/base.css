@@ -20,14 +20,6 @@
 	-moz-box-sizing: border-box;
 }
 
-html {
-	height: 100%;
-}
-
-body {
-	min-height: 100vh;
-}
-
 h1, h2, h3, h4 {
 	font-family: "Roboto";
 	font-weight: normal;

@@ -19,7 +19,7 @@
 			<div class="film-info-misc cb">
 				<h2>Autres informations</h2>
 				<p>
-					Réalisateur: Hugo Chupin<br>
+					Réalisateur: Père Iodisation<br>
 					Date de sortie: Jeudredi 94 Mavril<br>
 					Avec: James Franco, Tuppence Middleton, Hugo Waving, Zooey Deschannel, Sarah Gadon
 				</p>
@@ -43,7 +43,7 @@
 
 <section class="film film-2">
 	<aside class="film-poster left">
-		<img src="http://lorempicsum.com/up/300/441/1" alt="poster">
+		<img src="http://lorempicsum.com/up/300/441/2" alt="poster">
 	</aside>
 
 	<div class="film-info">
@@ -62,7 +62,7 @@
 			<div class="film-info-misc cb">
 				<h2>Autres informations</h2>
 				<p>
-					Réalisateur: Hugo Chupin<br>
+					Réalisateur: Père Iodisation<br>
 					Date de sortie: Jeudredi 94 Mavril<br>
 					Avec: James Franco, Tuppence Middleton, Hugo Waving, Zooey Deschannel, Sarah Gadon
 				</p>
@@ -86,7 +86,7 @@
 
 <section class="film film-1">
 	<aside class="film-poster left">
-		<img src="http://lorempicsum.com/up/300/441/1" alt="poster">
+		<img src="http://lorempicsum.com/up/300/441/3" alt="poster">
 	</aside>
 
 	<div class="film-info">
@@ -105,7 +105,7 @@
 			<div class="film-info-misc cb">
 				<h2>Autres informations</h2>
 				<p>
-					Réalisateur: Hugo Chupin<br>
+					Réalisateur: Père Iodisation<br>
 					Date de sortie: Jeudredi 94 Mavril<br>
 					Avec: James Franco, Tuppence Middleton, Hugo Waving, Zooey Deschannel, Sarah Gadon
 				</p>

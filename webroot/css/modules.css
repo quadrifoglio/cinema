@@ -160,3 +160,58 @@
 .film-info-misc .white-button {
 	margin-top: 12px;
 }
+
+/* Film information page */
+.film-details {
+	padding: 20px;
+	border-right: 25px solid #2980b9;
+	color: #fff;
+	background-color: #3498db;
+	text-align: justify;
+}
+
+.film-details-left {
+	width: 60%;
+}
+
+.film-details-left h2 {
+	margin-bottom: 10px;
+}
+
+.film-details-vid {
+	margin-top: 20px;
+}
+
+.film-details-desc {
+	margin-top: 20px;
+	font-size: 18px;
+}
+
+.film-details-info {
+	margin-top: 15px;
+}
+
+.film-details-cast {
+	margin-top: 15px;
+}
+
+.film-details-cast ul {
+	list-style: none;
+}
+
+.film-details-right {
+	max-width: 300px;
+	text-align: right;
+}
+
+.film-details-times {
+	margin-top: 20px;
+	text-align: left;
+}
+
+.film-details-time {
+	width: 100%;
+
+	text-align: center;
+	margin-top: 10px;
+}

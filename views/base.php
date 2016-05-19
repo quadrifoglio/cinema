@@ -37,6 +37,5 @@
 		<div class="main-content">
 			<?php include $view; ?>
 		</div>
-
 	</body>
 </html>

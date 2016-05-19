@@ -2,7 +2,7 @@
 
 require_once "system/router.php";
 
-define("WEBROOT", "http://127.0.0.1:8000/webroot");
+define("WEBROOT", "http://cinema.tabarnouche.wha.la/webroot");
 
 $router = new Router();
 
