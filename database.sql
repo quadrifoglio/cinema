@@ -29,6 +29,12 @@ CREATE TABLE client (
 	ClientCity VARCHAR(50)
 );
 
+CREATE TABLE session (
+	SessionID CHAR(64) NOT NULL UNIQUE PRIMARY KEY,
+	SessionClientRef INTEGER NOT NULL REFERENCES client ON UPDATE CASCADE ON DELETE RESTRICT,
+	SessionExpiration INTEGER NOT NULL
+);
+
 CREATE TABLE screening (
 	ScreeningID SERIAL UNIQUE NOT NULL PRIMARY KEY,
 	ScreeningRoom INTEGER NOT NULL REFERENCES room ON UPDATE CASCADE ON DELETE CASCADE,
@@ -55,4 +61,4 @@ INSERT INTO film VALUES (1, 'Cloud Atlas', '2013-03-13', 'An exploration of how 
 INSERT INTO person VALUES (1, 'Lana', 'Wachowski'), (2, 'Lilly', 'Wachowski'), (3, 'Tom', 'Tykwer'), (4, 'Tom', 'Hanks');
 INSERT INTO staff VALUES (1, 1, 1), (1, 1, 2), (1, 1, 3), (1, 2, 4);
 INSERT INTO room VALUES (1, 100), (2, 200);
-INSERT INTO screening VALUES (1, 2, 1, '2016-05-28', '13:00:00'), (2, 2, 1, '2016-05-28', '23:00:00'), (3, 2, 1, '2016-05-30', '09:00:00'), (4, 2, 1, '2016-05-30', '18:00:00')
+INSERT INTO screening VALUES (1, 2, 1, '2016-05-28', '13:00:00'), (2, 2, 1, '2016-05-28', '23:00:00'), (3, 2, 1, '2016-05-30', '09:00:00'), (4, 2, 1, '2016-05-30', '18:00:00');

@@ -23,6 +23,7 @@ class Database extends PDO {
 		if(Database::$instance == null) {
 			try {
 				Database::$instance = new Database("pgsql:host=$host dbname=$name", $user, $password);
+				Database::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 			}
 			catch(Exception $e) {
 				die("Database error: " . $e->getMessage());

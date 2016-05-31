@@ -1,6 +1,7 @@
 <?php
 
 require_once "system/router.php";
+require_once "system/session.php";
 
 require_once "app/index.php";
 require_once "app/film.php";
