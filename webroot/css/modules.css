@@ -2,10 +2,16 @@
 .white-button {
 	display: inline-block;
 
+	color: #fff;
 	padding: 10px 15px;
 	border: 1px solid white;
 	font-weight: bold;
 	font-size: 15px;
+	text-decoration: none;
+}
+
+.while-button:visited {
+	color: #fff;
 }
 
 /* Main menu (on the left) */
@@ -122,7 +128,7 @@
 }
 
 .film-info-header {
-	margin-bottom: 25px;
+	margin-bottom: 18px;
 }
 
 .film-info-left {

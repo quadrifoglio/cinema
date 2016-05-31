@@ -16,7 +16,7 @@
 			<p>
 				Réalisateur: <?= $fdirs ?><br>
 				Date de sortie: <?= $frelease ?><br>
-				Avec: James Franco, Tuppence Middleton, Hugo Waving, Zooey Deschannel, Sarah Gadon
+				Avec: <?= $ftopa ?>
 			</p>
 		</div>
 
@@ -40,12 +40,9 @@
 		<div class="film-details-times">
 			<h2>Scéances</h2>
 
-			<a class="white-button film-details-time">Jeudredi 94 Mavril</a>
-			<a class="white-button film-details-time">Jeudredi 94 Mavril</a>
-			<a class="white-button film-details-time">Jeudredi 94 Mavril</a>
-			<a class="white-button film-details-time">Jeudredi 94 Mavril</a>
-			<a class="white-button film-details-time">Jeudredi 94 Mavril</a>
-			<a class="white-button film-details-time">Jeudredi 94 Mavril</a>
+			<?php foreach($fscr as $s): ?>
+				<a class="white-button film-details-time"><?= $s["screeningdate"] . " " . $s["screeningtime"] ?></a>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </div>

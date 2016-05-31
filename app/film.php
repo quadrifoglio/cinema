@@ -17,6 +17,7 @@ $filmId = function($request) {
 	$staff = modelGetFilmStaff($id);
 	$directors = modelGetFilmRole($id, ROLE_DIRECTOR, false, true);
 	$topActors = modelGetFilmRole($id, ROLE_ACTOR, "LIMIT 5", true);
+	$scr = modelGetScreenings($film["filmid"]);
 
 	$data = [
 		"ftitle" => $film["filmtitle"],
@@ -24,7 +25,8 @@ $filmId = function($request) {
 		"fdirs" => $directors,
 		"ftopa" => $topActors,
 		"fteam" => $staff,
-		"frelease" => $film["filmrelease"]
+		"frelease" => $film["filmrelease"],
+		"fscr" => $scr
 	];
 
 	render("views/film.php", $data);

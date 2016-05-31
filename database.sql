@@ -33,7 +33,8 @@ CREATE TABLE screening (
 	ScreeningID SERIAL UNIQUE NOT NULL PRIMARY KEY,
 	ScreeningRoom INTEGER NOT NULL REFERENCES room ON UPDATE CASCADE ON DELETE CASCADE,
 	ScreeningFilm  INTEGER NOT NULL REFERENCES film ON UPDATE CASCADE ON DELETE CASCADE,
-	ScreeningTimestamp INTEGER NOT NULL
+	ScreeningDate DATE NOT NULL,
+	ScreeningTime TIME NOT NULL
 );
 
 CREATE TABLE staff (
@@ -53,3 +54,5 @@ INSERT INTO role VALUES (1, 'director'), (2, 'actor');
 INSERT INTO film VALUES (1, 'Cloud Atlas', '2013-03-13', 'An exploration of how the actions of individual lives impact one another in the past, present and future, as one soul is shaped from a killer into a hero, and an act of kindness ripples across centuries to inspire a revolution.');
 INSERT INTO person VALUES (1, 'Lana', 'Wachowski'), (2, 'Lilly', 'Wachowski'), (3, 'Tom', 'Tykwer'), (4, 'Tom', 'Hanks');
 INSERT INTO staff VALUES (1, 1, 1), (1, 1, 2), (1, 1, 3), (1, 2, 4);
+INSERT INTO room VALUES (1, 100), (2, 200);
+INSERT INTO screening VALUES (1, 2, 1, '2016-05-28', '13:00:00'), (2, 2, 1, '2016-05-28', '23:00:00'), (3, 2, 1, '2016-05-30', '09:00:00'), (4, 2, 1, '2016-05-30', '18:00:00')
