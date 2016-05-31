@@ -9,7 +9,7 @@ require_once "system/utils.php";
 function modelGetRecentFilms() {
 	$db = Database::get();
 
-	$res = $db->request("SELECT * FROM film ORDER BY filmrelease", []);
+	$res = $db->request("SELECT * FROM film ORDER BY filmrelease DESC", []);
 	if(!$res) {
 		return false;
 	}
