@@ -4,33 +4,36 @@ class Session {
 
 	/*
 	 * Vérifier l'existence d'une session utilisateur
-	 * Retourne l'id de l'utilisateur si une session existe, false sinon
+	 * Retourne les infos de l'utilisateur si une session existe, false sinon
 	 */
-	public static function check() {
+	public static function get() {
 		$cookie = isset($_COOKIE["ssid"]) ? htmlentities($_COOKIE["ssid"]) : false;
 		if(!$cookie) {
 			return false;
 		}
 
 		$db = Database::get();
-		$stmt = $db->prepare("SELECT SessionClientRef FROM session WHERE SessionID = ? LIMIT 1");
-		$success = $stmt->execute([$cookie]);
-		if(!$success) {
+		$res = $db->request("SELECT SessionClientRef FROM session WHERE SessionID = ? LIMIT 1", [$cookie]);
+		if(!$res) {
 			return false;
 		}
 
-		$res = $stmt->fetchAll();
-		return $res[0]["sessionclientref"];
+		if(count($res) == 1) {
+			return $db->request("SELECT * FROM client WHERE ClientID = ?", [$res[0]["sessionclientref"]])[0];
+		}
+
+		return false;
 	}
 
 	/*
 	 * Démarre une nouvelle session pour l'utilisateur spécifié
+	 * @param $clientId ID du client pour lequel une session doit être crée
 	 */
 	public static function start($clientId) {
 		$delay = 604800;
 		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,-";
 
-		srand((double)microtime()*1000000);
+		srand((double)microtime() * 1000000);
 		$i = 0;
 		$ssid = "";
 
