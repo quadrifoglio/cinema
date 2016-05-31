@@ -53,7 +53,7 @@ class Router {
 		for($i = 0; $i < count($route["path"]); $i++) {
 			$s = $route["path"][$i];
 
-			if($s[0] == "{") {
+			if(isset($s[0]) && $s[0] == "{") {
 				$end = strpos($s, "}"); // Détermination de la fin du nom de la variable d'URI
 				if(!$end) {
 					// Erreur de syntaxe dans l'URI de la route, pas de caractère '}'

@@ -15,12 +15,15 @@ function render($view, $vars = [], $base = true) {
 	}
 
 	foreach($vars as $k => $v) {
-		$vars[$k] = htmlspecialchars($v, ENT_QUOTES, "UTF-8");
+		$vars[$k] = is_string($v) ? htmlspecialchars($v, ENT_QUOTES, "UTF-8") : $v;
 	}
 
 	extract($vars);
 
-	if($base) include "views/base.php";
+	if($base)
+		include "views/base.php";
+	else
+		include $view;
 }
 
 /*

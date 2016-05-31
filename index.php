@@ -2,22 +2,17 @@
 
 require_once "system/router.php";
 
+require_once "app/index.php";
+require_once "app/film.php";
+require_once "app/admin.php";
+
 define("WEBROOT", "http://cinema.tabarnouche.wha.la/webroot");
 
 $router = new Router();
 
-$router->get("/", function($request) {
-	render("views/index.php");
-});
-
-$router->get("/film/{id}", function($request) {
-	$id =  $request->getVar("id");
-	render("views/film.php", ["id" => $id]);
-});
-
-$router->get("/admin", function($request) {
-	render("views/admin.php", [], false);
-});
+$router->get("/", $index);
+$router->get("/film/{id}", $filmId);
+$router->get("/admin", $admin);
 
 $response = $router->process(HttpRequest::get());
 $response->send();
