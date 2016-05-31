@@ -23,6 +23,8 @@ CREATE TABLE person (
 
 CREATE TABLE client (
 	ClientID SERIAL UNIQUE NOT NULL PRIMARY KEY,
+	ClientMail VARCHAR(255) NOT NULL,
+	ClientPass CHAR(40) NOT NULL,
 	ClientFirstName VARCHAR(50) NOT NULL,
 	ClientLastName VARCHAR(50) NOT NULL,
 	ClientAge INTEGER NOT NULL,
@@ -62,3 +64,4 @@ INSERT INTO person VALUES (1, 'Lana', 'Wachowski'), (2, 'Lilly', 'Wachowski'), (
 INSERT INTO staff VALUES (1, 1, 1), (1, 1, 2), (1, 1, 3), (1, 2, 4);
 INSERT INTO room VALUES (1, 100), (2, 200);
 INSERT INTO screening VALUES (1, 2, 1, '2016-05-28', '13:00:00'), (2, 2, 1, '2016-05-28', '23:00:00'), (3, 2, 1, '2016-05-30', '09:00:00'), (4, 2, 1, '2016-05-30', '18:00:00');
+INSERT INTO client VALUES (1, 'william@peal.com', '20f98f1d16f1c4805849e57c7bb00c578003fea6', 'William', 'Peal', 42, 'Annecy');

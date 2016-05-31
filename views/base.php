@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+<?php require_once "system/session.php"; ?>
 
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Cinema</title>
@@ -23,15 +24,19 @@
 				<a class="main-menu-nav-item" href="#">Film au hasard</a>
 			</nav>
 
-			<form class="main-menu-form" method="post">
-				<div class="main-menu-form-inputs">
-					<h2 class="main-menu-form-title">Connexion</h2>
-					<input class="main-menu-form-input" type="text" name="username" placeholder="Nom d'utilisateur">
-					<input class="main-menu-form-input" type="password" name="password" placeholder="Mot de passe">
-				</div>
+			<?php if(Session::get()): ?>
+				<a href="/logout">Déconnexion</a>
+			<?php else: ?>
+				<form class="main-menu-form" method="post" action="/login">
+					<div class="main-menu-form-inputs">
+						<h2 class="main-menu-form-title">Connexion</h2>
+						<input class="main-menu-form-input" type="email" name="mail" placeholder="Adresse mail">
+						<input class="main-menu-form-input" type="password" name="password" placeholder="Mot de passe">
+					</div>
 
-				<input class="main-menu-form-submit" type="submit" name="submit" value="Valider">
-			</form>
+					<input class="main-menu-form-submit" type="submit" name="submit" value="Valider">
+				</form>
+			<?php endif; ?>
 		</div>
 
 		<div class="main-content">

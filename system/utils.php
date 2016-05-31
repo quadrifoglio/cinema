@@ -3,6 +3,14 @@
 require_once "http_response.php";
 
 /*
+ * Envoyer une réponse de redirection
+ */
+function redirect($url) {
+	header("Location: " . $url);
+	exit();
+}
+
+/*
  * Charger un fichier de "vue", charger les variables du tableau $vars
  * afin qu'elles soit accessible depuis la vue
  */

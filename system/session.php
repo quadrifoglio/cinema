@@ -52,4 +52,13 @@ class Session {
 		return $stmt->execute([$ssid, $clientId, time() + $delay]);
 	}
 
+	/*
+	 * Supprime la session spécifiée
+	 * @param $clientId ID du client dont la session doit être supprimée
+	 */
+	public static function remove($clientId) {
+		$db = Database::get();
+		$db->request("DELETE FROM session WHERE SessionClientRef = ?", [$clientId]);
+	}
+
 }
