@@ -1,7 +1,7 @@
 <?php foreach($films as $i => $f) : ?>
 <section class="film <?= $i % 2 == 0 ? "film-1" : "film-2" ?>">
 	<aside class="film-poster left">
-		<img src="http://lorempicsum.com/up/300/441/1" alt="poster">
+	<img src="<?= WEBROOT . "/img/films/" . $f["id"] . ".png" ?>" alt="poster">
 	</aside>
 
 	<div class="film-info">
