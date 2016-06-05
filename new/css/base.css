@@ -1,0 +1,34 @@
+/*
+ * Basics - reset, page size...
+ */
+* {
+	margin: 0;
+	padding: 0;
+
+	box-sizing: boder-box;
+	-box-sizing: boder-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+/*
+ * Font definitions
+ */
+@font-face {
+	font-family: "Bebas Neue";
+	src: url("../font/BebasNeue.otf");
+}
+
+/*
+ * Global componenets
+ */
+.button {
+	padding: 10px;
+	border: 1px solid white;
+
+	color: #fff;
+	text-decoration: none;
+}
