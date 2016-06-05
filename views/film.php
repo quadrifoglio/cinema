@@ -1,7 +1,7 @@
 <div class="film-details cb">
-	<div class="film-details-left left">
 	<h1><?= $ftitle ?></h1>
 
+	<div class="film-details-left left">
 		<div class="film-details-vid">
 			<iframe width="853" height="480" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
 		</div>

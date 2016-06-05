@@ -23,3 +23,37 @@ function modelCheckClientPass($mail, $pass) {
 		return false;
 	}
 }
+
+/*
+ * Réserve une place pour le client spécifié
+ * @param $clientId ID du client
+ * @param $screeningId ID de la scéance
+ */
+function modelBookScreening($clientId, $screeningId) {
+	$db = Database::get();
+	return $db->request("INSERT INTO booking (ClientRef, ScreeningRef) VALUES (?, ?)", [$clientId, $screeningId]);
+}
+
+/*
+ * Retourne les réservations du client spécifié
+ * @param $clientId ID du client concerné
+ */
+function modelClientBookings($clientId) {
+	$db = Database::get();
+	$sql = "SELECT BookingID, FilmTitle, ScreeningRoom, ScreeningDate, ScreeningTime FROM booking " .
+		   "INNER JOIN screening ON ScreeningRef = ScreeningID " .
+		   "INNER JOIN film ON ScreeningFilm = FilmID " .
+		   "WHERE ClientRef = ?";
+
+	return $db->request($sql, [$clientId]);
+}
+
+/*
+ * Annuler une réservation
+ * @param $bookingId ID de la réservation
+ * @param $clientId ID du client (sécurité)
+ */
+function modelCancelBooking($bookingId, $clientId) {
+	$db = Database::get();
+	return $db->request("DELETE FROM booking WHERE BookingID = ? AND ClientRef = ?", [$bookingId, $clientId]);
+}

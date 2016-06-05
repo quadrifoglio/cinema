@@ -17,7 +17,7 @@ class Database extends PDO {
 	public static function get() {
 		$host = "127.0.0.1";
 		$user = "cinema";
-		$password = "WilliamPeel";
+		$password = "WilliamPeal";
 		$name = "cinema";
 
 		if(Database::$instance == null) {

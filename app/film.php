@@ -6,7 +6,7 @@ require_once "models/film.php";
 const ROLE_DIRECTOR = 1;
 const ROLE_ACTOR = 2;
 
-$filmId = function($request) {
+$film = function($request) {
 	$id =  $request->getVar("id");
 
 	$film = modelGetFilm($id);
