@@ -41,7 +41,7 @@
 			<h2>Scéances</h2>
 
 			<?php foreach($fscr as $s): ?>
-				<a class="white-button film-details-time"><?= $s["screeningdate"] . " " . $s["screeningtime"] ?></a>
+				<a class="white-button film-details-time" href="/book/<?= $fid ?>"><?= $s["screeningdate"] . " " . $s["screeningtime"] ?></a>
 			<?php endforeach; ?>
 		</div>
 	</div>

@@ -33,7 +33,7 @@
 			<h2 class="film-info-title">Horaires</h2>
 
 			<?php foreach($f["scr"] as $s): ?>
-				<a class="white-button film-info-time"><?= $s["screeningdate"] . " " . $s["screeningtime"] ?></a>
+				<a class="white-button film-info-time" href="/book/<?= $f["id"] ?>"><?= $s["screeningdate"] . " " . $s["screeningtime"] ?></a>
 			<?php endforeach; ?>
 		</div>
 	</div>

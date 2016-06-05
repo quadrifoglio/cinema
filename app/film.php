@@ -20,6 +20,7 @@ $film = function($request) {
 	$scr = modelGetScreenings($film["filmid"]);
 
 	$data = [
+		"fid" => $film["filmid"],
 		"ftitle" => $film["filmtitle"],
 		"fdesc" => $film["filmdesc"],
 		"fdirs" => $directors,

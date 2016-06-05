@@ -19,14 +19,18 @@
 			</div>
 
 			<nav class="main-menu-nav">
-				<a class="main-menu-nav-item" href="#">Le cinéma</a>
-				<a class="main-menu-nav-item" href="#">Films à l'affiche</a>
-				<a class="main-menu-nav-item" href="#">Film au hasard</a>
+				<a class="main-menu-nav-item" href="/">Le cinema</a>
+				<a class="main-menu-nav-item" href="/">Films à l'affiche</a>
+
+				<?php if(Session::get()): ?>
+					<a class="main-menu-nav-item" href="/client">Espace client</a>
+					<a class="main-menu-nav-item" href="/logout">Déconnexion</a>
+				<?php else: ?>
+					<a class="main-menu-nav-item" href="/register">Inscription</a>
+				<?php endif; ?>
 			</nav>
 
-			<?php if(Session::get()): ?>
-				<a href="/logout">Déconnexion</a>
-			<?php else: ?>
+			<?php if(!Session::get()): ?>
 				<form class="main-menu-form" method="post" action="/login">
 					<div class="main-menu-form-inputs">
 						<h2 class="main-menu-form-title">Connexion</h2>
