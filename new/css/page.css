@@ -152,7 +152,10 @@
 /*
  * Fim details page
  */
-.film {
+.content {
+	min-height: 100vh;
+	padding: 10px;
+
 	background-color: #141416;
 	color: white;
 }
@@ -160,15 +163,16 @@
 .film-details {
 	display: inline-block;
 	height: 100%;
-	max-width: 64.5%;
+	width: 64.5%;
 	vertical-align: top;
 
 	padding: 20px;
 }
 
 .film-details > h1 {
-	font-size: 36px;
 	margin-bottom: 21px;
+
+	font-size: 36px;
 }
 
 .film-details-desc {
@@ -179,8 +183,12 @@
 	margin-top: 20px;
 }
 
-.film-details-staff {
+.film-details-staff, .film-details-screenings {
 	margin-top: 20px;
+}
+
+.film-details-screenings a {
+	color: white;
 }
 
 .film-poster {
@@ -202,6 +210,17 @@
 	margin-bottom: 5px;
 
 	text-align: center;
+}
+
+/*
+ * Client panel
+ */
+.client {
+	padding: 20px;
+}
+
+.client > h1 {
+	margin-bottom: 25px;
 }
 
 /*
@@ -271,7 +290,7 @@
 	}
 
 	.film-details, .film-poster {
-		width: auto;
+		min-width: 100%;
 		margin-right: 20px;
 	}
 }

@@ -26,45 +26,54 @@
 			</div>
 		</nav>
 
-		<div class="content film">
+		<div class="content screenings">
 			<section class="film-details">
 				<h1>Titre du film</h1>
 
-				<iframe id="video" width="853" height="480" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
-
 				<p class="film-details-desc">Adipisicing totam tempora itaque omnis voluptatum. Consequatur perspiciatis numquam labore perferendis odio debitis consectetur repellendus inventore. Aperiam id beatae repellendus pariatur quo vel corrupti rerum. Fuga sint vitae id alias. Adipisicing totam tempora itaque omnis voluptatum. Consequatur perspiciatis numquam labore perferendis odio debitis consectetur repellendus inventore. Aperiam id beatae repellendus pariatur quo vel corrupti rerum. Fuga sint vitae id alias.</p>
-				<div class="film-details-info">
-					<table>
-						<tr>
-							<td>Réalisateur(s)</td>
-							<td>Tamer Lapute</td>
-						</tr>
-						<tr>
-							<td>Date de sortie</td>
-							<td>1er Janvier 1970</td>
-						</tr>
-						<tr>
-							<td>Avec</td>
-							<td>Ton père, ta mère, ta grand mère, la boule magique, le triangle kon</td>
-						</tr>
-					</table>
-				</div>
 
-				<table class="film-details-staff">
+				<table class="film-details-screenings">
 					<tr>
-						<td>Louis Borreill</td>
-						<td>Père Iodisation</td>
+						<td>Jeudredi 62 Mavril</td>
+						<td>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Jeudredi 62 Mavril</td>
+						<td>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Jeudredi 62 Mavril</td>
+						<td>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Jeudredi 62 Mavril</td>
+						<td>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+							<a href="#">9h00</a>
+						</td>
 					</tr>
 				</table>
 			</section>
 
 			<aside class="film-poster">
 				<img src="img/1.poster.jpg" alt="poster">
-
-				<a class="button" href="#">Jeudredi 94 Mavril à 8h00</a>
-				<a class="button" href="#">Jeudredi 94 Mavril à 8h00</a>
-				<a class="button" href="#">Jeudredi 94 Mavril à 8h00</a>
-				<a class="button" href="#">Jeudredi 94 Mavril à 8h00</a>
 			</aside>
 		</div>
 
@@ -76,31 +85,5 @@
 				<a href="#">Connexion</a>
 			</div>
 		</footer>
-
-		<script>
-			function resize() {
-				var w = document.querySelector("body").clientWidth;
-				var vid = document.getElementById("video");
-
-				if(!vid) return;
-
-				if(w >= 1600) {
-					vid.setAttribute("width", 1280);
-					vid.setAttribute("height", 720);
-				}
-				else if(w >= 1280) {
-					vid.setAttribute("width", 853);
-					vid.setAttribute("height", 480);
-				}
-				else if(w >= 650) {
-					vid.setAttribute("width", 640);
-					vid.setAttribute("height", 360);
-				}
-				else {
-					vid.setAttribute("width", 560);
-					vid.setAttribute("height", 315);
-				}
-			}
-		</script>
 	</body>
 </html>
