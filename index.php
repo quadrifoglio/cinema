@@ -20,7 +20,9 @@ $router->get("/book/{id}", $book);
 $router->get("/book/cancel/{id}", $bookCancel);
 $router->post("/book", $bookAction);
 
-$router->post("/login", $login);
+$router->get("/register", $register);
+$router->get("/login", $login);
+$router->post("/login", $loginPost);
 $router->get("/logout", $logout);
 
 $router->get("/client", $clientPanel);

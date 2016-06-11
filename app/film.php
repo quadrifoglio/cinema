@@ -20,14 +20,14 @@ $film = function($request) {
 	$scr = modelGetScreenings($film["filmid"]);
 
 	$data = [
-		"fid" => $film["filmid"],
-		"ftitle" => $film["filmtitle"],
-		"fdesc" => $film["filmdesc"],
-		"fdirs" => $directors,
-		"ftopa" => $topActors,
-		"fteam" => $staff,
-		"frelease" => $film["filmrelease"],
-		"fscr" => $scr
+		"id" => $film["filmid"],
+		"title" => $film["filmtitle"],
+		"desc" => $film["filmdesc"],
+		"dirs" => $directors,
+		"topa" => $topActors,
+		"team" => $staff,
+		"release" => $film["filmrelease"],
+		"scr" => $scr
 	];
 
 	render("views/film.php", $data);

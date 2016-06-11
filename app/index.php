@@ -22,5 +22,5 @@ $index = function($request) {
 		];
 	}
 
-	render("views/index.php", $data);
+	render("views/index.php", $data, false);
 };

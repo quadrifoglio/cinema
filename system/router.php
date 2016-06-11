@@ -96,7 +96,7 @@ class Router {
 			// Vérification de la correspondance de la route
 			if(count(array_diff($parts, $path)) == 0) {
 				if($method != $request->method) {
-					return error(405, "Methode " . $method . " non autorisée");
+					continue;
 				}
 
 				// Enregistrement des variables d'URI

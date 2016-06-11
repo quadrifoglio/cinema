@@ -1,31 +1,29 @@
-<div class="client-panel">
-	<h1>Informations - <?= $firstName . " " . $lastName ?></h1>
+<div class="content client">
+	<h1>Espace client - <?= $firstName . " " . $lastName ?></h1>
 
-	<div class="client-screenings">
-		<h2>Mes reservations</h2>
+	<h2>Mes réservation</h2>
 
-		<?php if(count($bks) > 0): ?>
-			<table>
+	<?php if(count($bks) > 0): ?>
+		<table class="client-screenings">
+			<tr>
+				<td>Titre</td>
+				<td>Date</td>
+				<td>Heure</td>
+				<td>Salle</td>
+				<td>Actions</td>
+			</tr>
+
+			<?php foreach($bks as $b): ?>
 				<tr>
-					<th>Film</th>
-					<th>Date</th>
-					<th>Heure</th>
-					<th>Salle</th>
-					<th>Action</th>
+					<td><?= $b["filmtitle"] ?></td>
+					<td><?= $b["screeningdate"] ?></td>
+					<td><?= $b["screeningtime"] ?></td>
+					<td><?= $b["screeningroom"] ?></td>
+					<td><a href="/book/cancel/<?= $b["bookingid"] ?>">Annuler</a></td>
 				</tr>
-
-				<?php foreach($bks as $b): ?>
-					<tr>
-						<td><?= $b["filmtitle"] ?></td>
-						<td><?= $b["screeningdate"] ?></td>
-						<td><?= $b["screeningtime"] ?></td>
-						<td><?= $b["screeningroom"] ?></td>
-						<td><a href="/book/cancel/<?= $b["bookingid"] ?>">Annuler</a></td>
-					</tr>
-				<?php endforeach; ?>
-			</table>
-		<?php else: ?>
-			<p>Vous n'avez aucune réservation</p>
-		<?php endif; ?>
-	</div>
+			<?php endforeach; ?>
+		</table>
+	<?php else: ?>
+		<p>Vous n'avez aucune réservation</p>
+	<?php endif; ?>
 </div>

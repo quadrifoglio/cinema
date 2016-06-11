@@ -24,6 +24,7 @@ $book = function($request) {
 	$data = [
 		"id" => $film["filmid"],
 		"title" => $film["filmtitle"],
+		"desc" => $film["filmdesc"],
 		"release" => $film["filmrelease"],
 		"scr" => $scr
 	];

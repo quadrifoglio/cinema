@@ -1,50 +1,46 @@
 <?php require_once "system/session.php"; ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<title>Cinema</title>
 
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 
 		<link rel="stylesheet" type="text/css" href="<?= WEBROOT ?>/css/base.css">
-		<link rel="stylesheet" type="text/css" href="<?= WEBROOT ?>/css/layout.css">
-		<link rel="stylesheet" type="text/css" href="<?= WEBROOT ?>/css/modules.css">
+		<link rel="stylesheet" type="text/css" href="<?= WEBROOT ?>/css/page.css">
 	</head>
 
 	<body>
-		<div class="main-menu left">
-			<div class="logo">
-				<img src="http://lorempicsum.com/futurama/250/75/1" alt="logo">
+		<nav class="nav">
+			<div class="nav-top"></div>
+
+			<a class="nav-logo" href="/">
+				<img class="nav-logo-img" src="<?= WEBROOT ?>/img/logo.png" alt="logo">
+			</a>
+
+			<div class="nav-links">
+				<a href="#">Link</a>
+				<a href="#">Link</a>
+				<a href="#">Link</a>
 			</div>
+		</nav>
 
-			<nav class="main-menu-nav">
-				<a class="main-menu-nav-item" href="/">Le cinema</a>
-				<a class="main-menu-nav-item" href="/">Films à l'affiche</a>
+		<?php include $view; ?>
 
+		<footer class="footer">
+			<p class="footer-left">Copyleft &copy William Peal - 2016</p>
+
+			<div class="footer-right">
 				<?php if(Session::get()): ?>
-					<a class="main-menu-nav-item" href="/client">Espace client</a>
-					<a class="main-menu-nav-item" href="/logout">Déconnexion</a>
+					<a href="/client">Espace client</a>
+					<a href="/logout">Déconnexion</a>
 				<?php else: ?>
-					<a class="main-menu-nav-item" href="/register">Inscription</a>
+					<a href="/reigster">Inscription</a>
+					<a href="/login">Connexion</a>
 				<?php endif; ?>
-			</nav>
-
-			<?php if(!Session::get()): ?>
-				<form class="main-menu-form" method="post" action="/login">
-					<div class="main-menu-form-inputs">
-						<h2 class="main-menu-form-title">Connexion</h2>
-						<input class="main-menu-form-input" type="email" name="mail" placeholder="Adresse mail">
-						<input class="main-menu-form-input" type="password" name="password" placeholder="Mot de passe">
-					</div>
-
-					<input class="main-menu-form-submit" type="submit" name="submit" value="Valider">
-				</form>
-			<?php endif; ?>
-		</div>
-
-		<div class="main-content">
-			<?php include $view; ?>
-		</div>
+			</div>
+		</footer>
 	</body>
 </html>
