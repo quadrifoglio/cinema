@@ -23,12 +23,12 @@
 		</div>
 
 		<table class="film-details-staff">
-			<?php foreach($team as $p): ?>
+			<?php if($team): foreach($team as $p): ?>
 				<tr>
 					<td><?= $p["personfirstname"] . " " . $p["personlastname"] ?></td>
 					<td><?= $p["rolename"] ?></td>
 				</tr>
-			<?php endforeach; ?>
+			<?php endforeach; endif; ?>
 		</table>
 	</section>
 

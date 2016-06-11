@@ -72,3 +72,7 @@ INSERT INTO film VALUES (2, 'Bienvenue à Zombieland', '2009-11-25', 'A shy stud
 INSERT INTO person VALUES (5, 'Ruben', 'Fleischer'), (6, 'Jesse', 'Eisenberg'), (7, 'Emma', 'Stone'), (8, 'Woody', 'Harrelson');
 INSERT INTO staff VALUES (2, 1, 5), (2, 2, 6), (2, 2, 7), (2, 2, 8);
 INSERT INTO screening VALUES (5, 2, 2, '2016-06-01', '13:00:00'), (6, 2, 2, '2016-06-01', '16:00:00'), (7, 2, 2, '2016-06-05', '09:00:00'), (8, 2, 2, '2016-06-10', '18:00:00');
+
+INSERT INTO film VALUES (3, 'H2G2: Le Guide du Voyageur Galactique', '2005-08-17', 'Mere seconds before the Earth is to be demolished by an alien construction crew, journeyman Arthur Dent is swept off the planet by his friend Ford Prefect, a researcher penning a new edition of "The Hitchhiker''s Guide to the Galaxy."');
+INSERT INTO person VALUES (9, 'Garth', 'Jennings'), (10, 'Martin', 'Freeman'), (11, 'Zooey', 'Deschanel'), (12, 'Yasiin', 'Bey');
+INSERT INTO staff VALUES (3, 1, 9), (3, 2, 10), (3, 2, 11), (3, 2, 12);
