@@ -21,9 +21,9 @@
 			</a>
 
 			<div class="nav-links">
-				<a href="#">Link</a>
-				<a href="#">Link</a>
-				<a href="#">Link</a>
+				<a href="/">A l'affiche</a>
+				<a href="/random">Film au hasard</a>
+				<a href="/about">A Propos</a>
 			</div>
 		</nav>
 

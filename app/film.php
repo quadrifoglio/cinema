@@ -6,8 +6,8 @@ require_once "models/film.php";
 const ROLE_DIRECTOR = 1;
 const ROLE_ACTOR = 2;
 
-$film = function($request) {
-	$id =  $request->getVar("id");
+function getFilm($request, $overloadID = 0) {
+	$id = $overloadID != 0 ? $overloadID : $request->getVar("id");
 
 	$film = modelGetFilm($id);
 	if(!$film) {
@@ -22,6 +22,7 @@ $film = function($request) {
 	$data = [
 		"id" => $film["filmid"],
 		"title" => $film["filmtitle"],
+		"trailer" => $film["filmtrailer"],
 		"desc" => $film["filmdesc"],
 		"dirs" => $directors,
 		"topa" => $topActors,
@@ -31,4 +32,10 @@ $film = function($request) {
 	];
 
 	render("views/film.php", $data);
+};
+
+$film = 'getFilm';
+
+$random = function($request) {
+	getFilm($request, modelGetRandomFilm());
 };

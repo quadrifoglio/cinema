@@ -4,6 +4,20 @@ require_once "system/database.php";
 require_once "system/utils.php";
 
 /*
+ * Film aléatoire
+ */
+function modelGetRandomFilm() {
+	$db = Database::get();
+
+	$res = $db->request("SELECT filmid FROM film OFFSET floor(random()*(select count(*) from film)) LIMIT 1", []);
+	if(!$res) {
+		return false;
+	}
+
+	return $res[0][0];
+}
+
+/*
  * Obtenir la liste des films récents
  */
 function modelGetRecentFilms() {

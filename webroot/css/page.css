@@ -6,6 +6,7 @@
 
 	background-image: url("../img/header.jpg");
 	background-size: cover;
+	background-position: fixed;
 
 	font-family: "Bebas Neue";
 	text-align: center;

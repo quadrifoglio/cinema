@@ -2,7 +2,7 @@
 	<section class="film-details">
 		<h1><?= $title ?></h1>
 
-		<iframe id="video" width="853" height="480" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
+		<iframe id="video" width="853" height="480" src="<?= $trailer ?>" frameborder="0" allowfullscreen></iframe>
 
 		<p class="film-details-desc"><?= $desc ?></p>
 		<div class="film-details-info">

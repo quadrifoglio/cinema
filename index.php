@@ -15,6 +15,7 @@ $router = new Router();
 
 $router->get("/", $index);
 $router->get("/film/{id}", $film);
+$router->get("/random", $random);
 
 $router->get("/book/{id}", $book);
 $router->get("/book/cancel/{id}", $bookCancel);
