@@ -18,8 +18,8 @@ $router->get("/film/{id}", $film);
 $router->get("/random", $random);
 
 $router->get("/book/{id}", $book);
+$router->get("/book/action/{id}", $bookAction);
 $router->get("/book/cancel/{id}", $bookCancel);
-$router->post("/book", $bookAction);
 
 $router->get("/register", $register);
 $router->get("/login", $login);

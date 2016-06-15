@@ -9,7 +9,6 @@ $index = function($request) {
 	foreach($films as $film) {
 		$directors = modelGetFilmRole($film["filmid"], ROLE_DIRECTOR, false, true);
 		$topActors = modelGetFilmRole($film["filmid"], ROLE_ACTOR, "LIMIT 5", true);
-		$scr = modelGetScreenings($film["filmid"]);
 
 		$data["films"][] = [
 			"id" => $film["filmid"],
@@ -18,7 +17,6 @@ $index = function($request) {
 			"dirs" => $directors,
 			"topa" => $topActors,
 			"release" => $film["filmrelease"],
-			"scr" => $scr
 		];
 	}
 

@@ -13,7 +13,7 @@
 				</tr>
 				<tr>
 					<td>Date de sortie</td>
-					<td><?= $release ?></td>
+					<td><?= formatDate($release) ?></td>
 				</tr>
 				<tr>
 					<td>Avec</td>
@@ -34,10 +34,6 @@
 
 	<aside class="film-poster">
 		<img src="<?= WEBROOT ?>/img/<?= $id ?>.poster.jpg" alt="poster">
-
-		<!--<a class="button" href="#">Jeudredi 94 Mavril à 8h00</a>
-		<a class="button" href="#">Jeudredi 94 Mavril à 8h00</a>
-		<a class="button" href="#">Jeudredi 94 Mavril à 8h00</a>
-		<a class="button" href="#">Jeudredi 94 Mavril à 8h00</a>-->
+		<a class="button" href="/book/<?= $id ?>">Réservez une place</a>
 	</aside>
 </div>

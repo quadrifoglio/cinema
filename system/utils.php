@@ -3,6 +3,60 @@
 require_once "http_response.php";
 
 /*
+ * Formater une date donnée au format PostgreSQL
+ */
+function formatDate($date) {
+	$t = explode("-", $date);
+	if(count($t) != 3) {
+		return "Date invalide";
+	}
+
+	switch($t[1]) {
+		case "01":
+			$month = "Janvier";
+			break;
+		case "02":
+			$month = "Février";
+			break;
+		case "03":
+			$month = "Mars";
+			break;
+		case "04":
+			$month = "Avril";
+			break;
+		case "05":
+			$month = "Mai";
+			break;
+		case "06":
+			$month = "Juin";
+			break;
+		case "07":
+			$month = "Juillet";
+			break;
+		case "08":
+			$month = "Août";
+			break;
+		case "09":
+			$month = "Septembre";
+			break;
+		case "10":
+			$month = "Octobre";
+			break;
+		case "11":
+			$month = "Novembre";
+			break;
+		case "12":
+			$month = "Décembre";
+			break;
+		default:
+			$month = "WTF";
+			break;
+	}
+
+	return $t[2] . " " . $month . " " . $t[0];
+}
+
+/*
  * Envoyer une réponse de redirection
  */
 function redirect($url) {

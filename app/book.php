@@ -1,5 +1,6 @@
 <?php
 
+require_once "system/utils.php";
 require_once "system/session.php";
 require_once "models/film.php";
 require_once "models/client.php";
@@ -19,24 +20,23 @@ $book = function($request) {
 		exit();
 	}
 
-	$scr = modelGetScreenings($film["filmid"]);
+	$scr = modelGetScreeningsByDate($film["filmid"]);
 
 	$data = [
 		"id" => $film["filmid"],
 		"title" => $film["filmtitle"],
 		"desc" => $film["filmdesc"],
 		"release" => $film["filmrelease"],
-		"scr" => $scr
+		"dates" => $scr
 	];
 
 	render("views/book.php", $data);
 };
 
 $bookAction = function($request) {
-	$scrId = isset($_POST["screening"]) ? htmlentities($_POST["screening"]) : false;
-
-	if(!$scrId) {
-		render("views/error.php", ["message" => "Veuillez renseigner tous les champs"]);
+	$id =  $request->getVar("id");
+	if(!$id) {
+		redirect("/");
 		exit();
 	}
 
@@ -47,7 +47,7 @@ $bookAction = function($request) {
 		exit();
 	}
 
-	if(!modelBookScreening($ss["clientid"], $scrId)) {
+	if(!modelBookScreening($ss["clientid"], $id)) {
 		render("views/error.php", ["message" => "Erreur lors de la commande de la place"]);
 		exit();
 	}

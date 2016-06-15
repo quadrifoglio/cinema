@@ -50,7 +50,7 @@ function modelGetFilm($id) {
  * Obtenir les projections d'un film
  * @param $filmId ID du film
  */
-function modelGetScreenings($filmId) {
+function modelGetScreeningsByDate($filmId) {
 	$db = Database::get();
 	$sql = "SELECT * FROM screening WHERE ScreeningFilm = ?";
 
@@ -59,11 +59,14 @@ function modelGetScreenings($filmId) {
 		return false;
 	}
 
+	$s = [];
+
 	foreach($res as $i => $r) {
-		$res[$i]["screeningtime"] = substr($r["screeningtime"], 0, -3); // Suppression de précision horaire inutile: (ex: 13:00:00 -> 13:00)
+		$r["screeningtime"] = substr($r["screeningtime"], 0, -3); // Suppression de précision horaire inutile: (ex: 13:00:00 -> 13:00)
+		$s[$r["screeningdate"]][] = $r;
 	}
 
-	return $res;
+	return $s;
 }
 
 /*

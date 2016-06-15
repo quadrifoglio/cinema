@@ -4,27 +4,19 @@
 
 		<p class="film-details-desc"><?= $desc ?></p>
 
-		<!--<table class="film-details-screenings">
-			<tr>
-				<td>Jeudredi 62 Mavril</td>
-				<td>
-					<a href="#">9h00</a>
-					<a href="#">9h00</a>
-					<a href="#">9h00</a>
-					<a href="#">9h00</a>
-				</td>
-			</tr>
-		</table>-->
+		<table class="film-details-screenings">
+			<?php if($dates): foreach($dates as $date => $scr): ?>
+				<tr>
+					<td><?= formatDate($date) ?></td>
+					<td>
+						<?php foreach($scr as $s): ?>
+							<a href="/book/action/<?= $s["screeningid"] ?>"><?= $s["screeningtime"] ?></a>
+						<?php endforeach; ?>
+					</td>
+				</tr>
+			<?php endforeach; endif; ?>
+		</table>
 
-		<form method="post" action="/book">
-			<select name="screening">
-				<?php foreach($scr as $s): ?>
-					<option value="<?= $s["screeningid"] ?>"><?= $s["screeningdate"] . " " . $s["screeningtime"] ?></option>
-				<?php endforeach; ?>
-			</select>
-
-			<input type="submit" value="Valider">
-		</form>
 	</section>
 
 	<aside class="film-poster">

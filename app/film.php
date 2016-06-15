@@ -17,7 +17,7 @@ function getFilm($request, $overloadID = 0) {
 	$staff = modelGetFilmStaff($id);
 	$directors = modelGetFilmRole($id, ROLE_DIRECTOR, false, true);
 	$topActors = modelGetFilmRole($id, ROLE_ACTOR, "LIMIT 5", true);
-	$scr = modelGetScreenings($film["filmid"]);
+	$scr = modelGetScreeningsByDate($film["filmid"]);
 
 	$data = [
 		"id" => $film["filmid"],
