@@ -1,16 +1,15 @@
 <?php
 
-require_once "system/router.php";
+define("ROUTER_PREFIX", "");
+define("WEBROOT", "http://cinema.tabarnouche.wha.la/webroot");
 
+require_once "system/router.php";
 require_once "app/index.php";
 require_once "app/film.php";
 require_once "app/book.php";
 require_once "app/login.php";
 require_once "app/client.php";
 require_once "app/admin.php";
-
-define("ROUTER_PREFIX", "");
-define("WEBROOT", "http://cinema.tabarnouche.wha.la/webroot");
 
 $router = new Router();
 

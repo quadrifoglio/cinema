@@ -16,7 +16,7 @@
 		<nav class="nav">
 			<div class="nav-top"></div>
 
-			<a class="nav-logo" href="/">
+			<a class="nav-logo" href="<?= ROUTER_PREFIX ?>/">
 				<img class="nav-logo-img" src="<?= WEBROOT ?>/img/logo.png" alt="logo">
 			</a>
 

@@ -60,7 +60,7 @@ function formatDate($date) {
  * Envoyer une réponse de redirection
  */
 function redirect($url) {
-	header("Location: " . $url);
+	header("Location: " . ROUTER_PREFIX . $url);
 	exit();
 }
 
