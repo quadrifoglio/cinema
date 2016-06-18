@@ -1,5 +1,7 @@
 <?php
 
+require_once "system/database.php";
+
 /*
  * Enregister une salle
  * @param $cap Capacité

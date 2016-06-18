@@ -30,7 +30,7 @@
 		<section class="brand">
 			<?php foreach($films as $i => $f) : ?>
 				<div class="brand-film">
-				<img src="<?= WEBROOT ?>/img/<?= $f["id"] ?>.png" alt="1">
+				<img src="<?= WEBROOT ?>/img/<?= $f["id"] ?>.jpg" alt="1">
 
 					<div class="brand-film-info brand-film-info-dark">
 						<div class="brand-film-info-content">

@@ -8,7 +8,6 @@ require_once "system/utils.php";
  * Retourne l'ID du client en cas de succès, false sinon
  * @param $mail Mail de l'utilisateur
  */
-
 function modelCheckClientPass($mail, $pass) {
 	$db = Database::get();
 	$res = $db->request("SELECT ClientID, ClientPass FROM client WHERE ClientMail = ? LIMIT 1", [$mail]);

@@ -7,6 +7,11 @@ require_once "http_response.php";
 class Router {
 
 	private $routes = [];
+	private $prefix = "";
+
+	public function __construct($prefix = "") {
+		$this->prefix = $prefix;
+	}
 
 	/*
 	 * Ajouter une réponse pour une requête GET
@@ -69,6 +74,10 @@ class Router {
 
 	public function process($request) {
 		$response = error(404, "Page introuvable");
+
+		if(strlen($this->prefix) != 0) {
+			$request->uri = str_replace($this->prefix, "", $request->uri);
+		}
 
 		foreach($this->routes as $route) {
 			$parts = explode("/", $request->uri); // URI de la requête sous forme de tableau
