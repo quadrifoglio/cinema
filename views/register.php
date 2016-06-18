@@ -1,7 +1,7 @@
 <div class="content login">
 	<h1>Inscription</h1>
 
-	<form method="post" action="/register">
+	<form method="post" action="<?= ROUTER_PREFIX ?>/register">
 		<table>
 			<tr>
 				<td>Adresse e-mail</td>

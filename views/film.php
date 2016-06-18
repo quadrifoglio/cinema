@@ -34,6 +34,6 @@
 
 	<aside class="film-poster">
 		<img src="<?= WEBROOT ?>/img/<?= $id ?>.poster.jpg" alt="poster">
-		<a class="button" href="/book/<?= $id ?>">Réservez une place</a>
+		<a class="button" href="<?= ROUTER_PREFIX ?>/book/<?= $id ?>">Réservez une place</a>
 	</aside>
 </div>

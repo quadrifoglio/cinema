@@ -15,7 +15,7 @@
 							<?php if($seats > 0): ?>
 								<p><?= $s["screeningtime"] . " - " . $seats . " place(s) restante(s)" ?></p>
 
-								<form method="post" action="/book/action/<?= $s["screeningid"] ?>">
+								<form method="post" action="<?= ROUTER_PREFIX ?>/book/action/<?= $s["screeningid"] ?>">
 									<select name="rate">
 										<?php foreach($rates as $r): ?>
 											<option value="<?= $r["rateid"] ?>"><?= $r["ratename"] . " - " . $r["rateprice"] . "€" ?></option>

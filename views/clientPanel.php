@@ -21,7 +21,7 @@
 					<td><?= $b["screeningtime"] ?></td>
 					<td><?= $b["screeningroom"] ?></td>
 					<td><?= $b["ratename"] . " - " . $b["rateprice"] . "€" ?></td>
-					<td><a href="/book/cancel/<?= $b["bookingid"] ?>">Annuler</a></td>
+					<td><a href="<?= ROUTER_PREFIX ?>/book/cancel/<?= $b["bookingid"] ?>">Annuler</a></td>
 				</tr>
 			<?php endforeach; ?>
 		</table>

@@ -21,9 +21,9 @@
 			</a>
 
 			<div class="nav-links">
-				<a href="/">A l'affiche</a>
-				<a href="/random">Film au hasard</a>
-				<a href="/about">A Propos</a>
+				<a href="<?= ROUTER_PREFIX ?>/">A l'affiche</a>
+				<a href="<?= ROUTER_PREFIX ?>/random">Film au hasard</a>
+				<a href="<?= ROUTER_PREFIX ?>/about">A Propos</a>
 			</div>
 		</nav>
 
@@ -34,11 +34,11 @@
 
 			<div class="footer-right">
 				<?php if(Session::get()): ?>
-					<a href="/client">Espace client</a>
-					<a href="/logout">Déconnexion</a>
+					<a href="<?= ROUTER_PREFIX ?>/client">Espace client</a>
+					<a href="<?= ROUTER_PREFIX ?>/logout">Déconnexion</a>
 				<?php else: ?>
-					<a href="/register">Inscription</a>
-					<a href="/login">Connexion</a>
+					<a href="<?= ROUTER_PREFIX ?>/register">Inscription</a>
+					<a href="<?= ROUTER_PREFIX ?>/login">Connexion</a>
 				<?php endif; ?>
 			</div>
 		</footer>

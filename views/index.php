@@ -18,11 +18,11 @@
 
 			<div class="header-info-btns">
 				<?php if(!Session::get()): ?>
-					<a class="button" href="/register">Inscription</a>
+					<a class="button" href="<?= ROUTER_PREFIX ?>/register">Inscription</a>
 					&nbsp&nbsp&nbsp
-					<a class="button" href="/login">Connexion</a>
+					<a class="button" href="<?= ROUTER_PREFIX ?>/login">Connexion</a>
 				<?php else: ?>
-					<a class="button" href="/client">Espace client</a>
+					<a class="button" href="<?= ROUTER_PREFIX ?>/client">Espace client</a>
 				<?php endif; ?>
 			</div>
 		</header>
@@ -38,8 +38,8 @@
 							<p><?= $f["desc"] ?></p>
 
 							<div class="brand-film-info-btns">
-								<a class="button" href="/film/<?= $f["id"] ?>">Plus d'informations</a>
-								<a class="button" href="/book/<?= $f["id"] ?>">Réserver une place</a>
+								<a class="button" href="<?= ROUTER_PREFIX ?>/film/<?= $f["id"] ?>">Plus d'informations</a>
+								<a class="button" href="<?= ROUTER_PREFIX ?>/book/<?= $f["id"] ?>">Réserver une place</a>
 							</div>
 						</div>
 					</div>
@@ -52,11 +52,11 @@
 
 			<div class="footer-right">
 				<?php if(Session::get()): ?>
-					<a href="/client">Espace client</a>
-					<a href="/logout">Déconnexion</a>
+					<a href="<?= ROUTER_PREFIX ?>/client">Espace client</a>
+					<a href="<?= ROUTER_PREFIX ?>/logout">Déconnexion</a>
 				<?php else: ?>
-					<a href="/reigster">Inscription</a>
-					<a href="/login">Connexion</a>
+					<a href="<?= ROUTER_PREFIX ?>/reigster">Inscription</a>
+					<a href="<?= ROUTER_PREFIX ?>/login">Connexion</a>
 				<?php endif; ?>
 			</div>
 		</footer>

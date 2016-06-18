@@ -1,7 +1,7 @@
 <div class="content login">
 	<h1>Connexion</h1>
 
-	<form method="post" action="/login">
+	<form method="post" action="<?= ROUTER_PREFIX ?>/login">
 		<table>
 			<tr>
 				<td>Adresse e-mail</td>
