@@ -10,7 +10,23 @@
 					<td><?= formatDate($date) ?></td>
 					<td>
 						<?php foreach($scr as $s): ?>
-							<a href="/book/action/<?= $s["screeningid"] ?>"><?= $s["screeningtime"] ?></a>
+							<?php $seats = modelGetAvailableSeats($s["screeningid"]); ?>
+
+							<?php if($seats > 0): ?>
+								<p><?= $s["screeningtime"] . " - " . $seats . " place(s) restante(s)" ?></p>
+
+								<form method="post" action="/book/action/<?= $s["screeningid"] ?>">
+									<select name="rate">
+										<?php foreach($rates as $r): ?>
+											<option value="<?= $r["rateid"] ?>"><?= $r["ratename"] . " - " . $r["rateprice"] . "€" ?></option>
+										<?php endforeach; ?>
+									</select>
+
+									<input type="number" name="amount" placeholder="Quantité">
+									<input type="submit" name="submit" value="Réserver">
+								</form>
+								<br>
+							<?php endif; ?>
 						<?php endforeach; ?>
 					</td>
 				</tr>

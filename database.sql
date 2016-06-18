@@ -53,8 +53,15 @@ CREATE TABLE staff (
 	PRIMARY KEY (FilmIdRef, RoleIdRef, PersonIdRef)
 );
 
+CREATE TABLE rate (
+	RateID SERIAL UNIQUE NOT NULL PRIMARY KEY,
+	RateName VARCHAR(50) NOT NULL,
+	RatePrice REAL NOT NULL
+);
+
 CREATE TABLE booking (
 	BookingID SERIAL UNIQUE NOT NULL PRIMARY KEY,
+	RateRef INTEGER NOT NULL REFERENCES rate ON UPDATE CASCADE ON DELETE RESTRICT,
 	ClientRef INTEGER NOT NULL REFERENCES client ON UPDATE CASCADE ON DELETE RESTRICT,
 	ScreeningRef INTEGER NOT NULL REFERENCES screening ON UPDATE CASCADE ON DELETE RESTRICT
 );
@@ -63,6 +70,7 @@ INSERT INTO client VALUES (1, 'william@peal.com', '20f98f1d16f1c4805849e57c7bb00
 
 INSERT INTO room VALUES (1, 100), (2, 200);
 INSERT INTO role VALUES (1, 'director'), (2, 'actor');
+INSERT INTO rate VALUES (1, 'Tarif normal', 8), (2, 'Tarif étudiant', 6.5);
 
 INSERT INTO film VALUES (1, 'Cloud Atlas', '2013-03-13', 'An exploration of how the actions of individual lives impact one another in the past, present and future, as one soul is shaped from a killer into a hero, and an act of kindness ripples across centuries to inspire a revolution.', 'https://www.youtube.com/embed/hWnAqFyaQ5s');
 INSERT INTO person VALUES (1, 'Lana', 'Wachowski'), (2, 'Lilly', 'Wachowski'), (3, 'Tom', 'Tykwer'), (4, 'Tom', 'Hanks');

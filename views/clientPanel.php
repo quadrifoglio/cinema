@@ -10,15 +10,17 @@
 				<td>Date</td>
 				<td>Heure</td>
 				<td>Salle</td>
+				<td>Tarif</td>
 				<td>Actions</td>
 			</tr>
 
 			<?php foreach($bks as $b): ?>
 				<tr>
 					<td><?= $b["filmtitle"] ?></td>
-					<td><?= $b["screeningdate"] ?></td>
+					<td><?= formatDate($b["screeningdate"]) ?></td>
 					<td><?= $b["screeningtime"] ?></td>
 					<td><?= $b["screeningroom"] ?></td>
+					<td><?= $b["ratename"] . " - " . $b["rateprice"] . "€" ?></td>
 					<td><a href="/book/cancel/<?= $b["bookingid"] ?>">Annuler</a></td>
 				</tr>
 			<?php endforeach; ?>

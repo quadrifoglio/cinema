@@ -25,13 +25,53 @@ function modelCheckClientPass($mail, $pass) {
 }
 
 /*
+ * Retourne la liste des tarifs disponibles
+ */
+function modelGetRates() {
+	$db = Database::get();
+	return $db->request("SELECT * FROM rate", []);
+}
+
+/*
+ * Retourne le nombre de place dispobibles pour une projection
+ * @param $screeningId ID de la scéance
+ */
+function modelGetAvailableSeats($screeningId) {
+	$db = Database::get();
+
+	$res = $db->request("SELECT RoomCap FROM screening INNER JOIN room ON ScreeningRoom = RoomID WHERE ScreeningID = ? LIMIT 1", [$screeningId]);
+	if(!$res) {
+		return false;
+	}
+
+	$cap = $res[0][0];
+
+	$res = $db->request("SELECT COUNT(*) FROM booking WHERE ScreeningRef = ?", [$screeningId]);
+	if(!$res) {
+		return false;
+	}
+
+	return $cap - $res[0][0];
+}
+
+/*
  * Réserve une place pour le client spécifié
  * @param $clientId ID du client
  * @param $screeningId ID de la scéance
+ * @param $rateId ID du tarif à appliquer
+ * @param $amount Nombre de places à commander
  */
-function modelBookScreening($clientId, $screeningId) {
+function modelBookScreening($clientId, $screeningId, $rateId, $amount) {
 	$db = Database::get();
-	return $db->request("INSERT INTO booking (ClientRef, ScreeningRef) VALUES (?, ?)", [$clientId, $screeningId]);
+
+	for($i = 0; $i < $amount; $i++) {
+		$res = $db->request("INSERT INTO booking (RateRef, ClientRef, ScreeningRef) VALUES (?, ?, ?)", [$rateId, $clientId, $screeningId]);
+		if(!$res) {
+			return false;
+		}
+	}
+
+	return true;
 }
 
 /*
@@ -40,9 +80,10 @@ function modelBookScreening($clientId, $screeningId) {
  */
 function modelClientBookings($clientId) {
 	$db = Database::get();
-	$sql = "SELECT BookingID, FilmTitle, ScreeningRoom, ScreeningDate, ScreeningTime FROM booking " .
+	$sql = "SELECT BookingID, FilmTitle, RateName, RatePrice, ScreeningRoom, ScreeningDate, ScreeningTime FROM booking " .
 		   "INNER JOIN screening ON ScreeningRef = ScreeningID " .
 		   "INNER JOIN film ON ScreeningFilm = FilmID " .
+		   "INNER JOIN rate ON RateRef = RateID " .
 		   "WHERE ClientRef = ?";
 
 	return $db->request($sql, [$clientId]);

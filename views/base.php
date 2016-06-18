@@ -37,7 +37,7 @@
 					<a href="/client">Espace client</a>
 					<a href="/logout">Déconnexion</a>
 				<?php else: ?>
-					<a href="/reigster">Inscription</a>
+					<a href="/register">Inscription</a>
 					<a href="/login">Connexion</a>
 				<?php endif; ?>
 			</div>

@@ -5,6 +5,9 @@ require_once "system/session.php";
 require_once "models/film.php";
 require_once "models/client.php";
 
+const RateNormal = 1;
+const RateStudent = 2;
+
 $book = function($request) {
 	$id =  $request->getVar("id");
 	$ss = Session::get();
@@ -27,7 +30,8 @@ $book = function($request) {
 		"title" => $film["filmtitle"],
 		"desc" => $film["filmdesc"],
 		"release" => $film["filmrelease"],
-		"dates" => $scr
+		"dates" => $scr,
+		"rates" => modelGetRates()
 	];
 
 	render("views/book.php", $data);
@@ -47,7 +51,21 @@ $bookAction = function($request) {
 		exit();
 	}
 
-	if(!modelBookScreening($ss["clientid"], $id)) {
+	$rate = htmlentities($_POST["rate"]);
+	$amount = htmlentities($_POST["amount"]);
+
+	if($rate == RateStudent && $ss["clientage"] > 21) {
+		render("views/error.php", ["message" => "Vous devez avoir moins de 21 ans pour réserver un tarif étudiant"]);
+		exit();
+	}
+
+	$n = modelGetAvailableSeats($id);
+	if($n < $amount) {
+		render("views/error.php", ["message" => "Nombre de places disponibles insuffisant"]);
+		exit();
+	}
+
+	if(!modelBookScreening($ss["clientid"], $id, $rate, $amount)) {
 		render("views/error.php", ["message" => "Erreur lors de la commande de la place"]);
 		exit();
 	}

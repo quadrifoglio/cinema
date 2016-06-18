@@ -3,6 +3,6 @@
 require_once "system/session.php";
 
 $admin = function($request) {
-	Session::start();
+	$ss = Session::get();
 	render("views/admin.php", [], false);
 };
