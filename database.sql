@@ -89,3 +89,11 @@ INSERT INTO staff VALUES (3, 1, 9), (3, 2, 10), (3, 2, 11), (3, 2, 12);
 INSERT INTO film VALUES (4, 'Kill Bill', '26-11-2003', 'The Bride wakens from a four-year coma. The child she carried in her womb is gone. Now she must wreak vengeance on the team of assassins who betrayed her - a team she was once part of.', 'https://www.youtube.com/embed/7kSuas6mRpk');
 INSERT INTO person VALUES (13, 'Quentin', 'Tarantino'), (14, 'Uma', 'Thurman');
 INSERT INTO staff VALUES (4, 1, 13), (4, 2, 14);
+
+INSERT INTO film VALUES (5, 'V pour Vendetta', '2006-04-19', 'In a future British tyranny, a shadowy freedom fighter, known only by the alias of "V", plots to overthrow it with the help of a young woman.', 'https://www.youtube.com/embed/qxyUl9M_7vc');
+INSERT INTO person VALUES (15, 'James', 'McTeigue'), (16, 'Hugo', 'Weaving'), (17, 'Natalie', 'Portman');
+INSERT INTO staff VALUES (5, 1, 15), (5, 2, 16), (5, 2, 17);
+
+INSERT INTO film VALUES (6, 'Rabbi Jacob', '1973-10-18', 'A bigoted Frenchman finds himself forced to impersonate a popular rabbi while on the run from a group of assassins - and the police.', 'https://www.youtube.com/embed/Vni3gzzhRrA');
+INSERT INTO person VALUES (18, 'Gérard', 'Oury'), (19, 'Louis', 'De Funès');
+INSERT INTO staff VALUES (6, 1, 18), (6, 2, 19);
