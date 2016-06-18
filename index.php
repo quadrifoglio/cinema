@@ -9,7 +9,7 @@ require_once "app/login.php";
 require_once "app/client.php";
 require_once "app/admin.php";
 
-define("ROUTER_PREFIX", "/RT/1Projet5/cinema");
+define("ROUTER_PREFIX", "");
 define("WEBROOT", "http://cinema.tabarnouche.wha.la/webroot");
 
 $router = new Router();

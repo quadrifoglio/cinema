@@ -70,7 +70,7 @@ class Router {
 	public function process($request) {
 		$response = error(404, "Page introuvable");
 
-		if(isset(ROUTER_PREFIX)) {
+		if(defined(ROUTER_PREFIX)) {
 			$request->uri = str_replace(ROUTER_PREFIX, "", $request->uri);
 		}
 
