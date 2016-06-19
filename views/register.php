@@ -9,6 +9,16 @@
 			</tr>
 
 			<tr>
+				<td>Prénom</td>
+				<td><input type="text" name="fname"></td>
+			</tr>
+
+			<tr>
+				<td>Nom</td>
+				<td><input type="text" name="lname"></td>
+			</tr>
+
+			<tr>
 				<td>Mot de passe</td>
 				<td><input type="password" name="password"></td>
 			</tr>

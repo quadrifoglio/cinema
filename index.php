@@ -22,6 +22,7 @@ $router->post("/book/action/{id}", $bookAction);
 $router->get("/book/cancel/{id}", $bookCancel);
 
 $router->get("/register", $register);
+$router->post("/register", $registerPost);
 $router->get("/login", $login);
 $router->post("/login", $loginPost);
 $router->get("/client", $clientPanel);

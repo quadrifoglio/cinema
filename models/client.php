@@ -4,6 +4,23 @@ require_once "system/database.php";
 require_once "system/utils.php";
 
 /*
+ * Enregistre un nouveau client
+ * @param $mail Adresse mail
+ * @param $pass Mot de passe
+ * @param $age Age
+ */
+function modelRegisterClient($mail, $pass, $fname, $lname, $age) {
+	$db = Database::get();
+
+	$ok = $db->request("INSERT INTO client (ClientMail, ClientPass, ClientFirstName, ClientLastName, ClientAge) VALUES (?, ?, ?, ?, ?)", [$mail, $pass, $fname, $lname, $age]);
+	if(!$ok) {
+		return false;
+	}
+
+	return true;
+}
+
+/*
  * Vérifie le mot de passe d'un utilisateur en se basant sur mon email
  * Retourne l'ID du client en cas de succès, false sinon
  * @param $mail Mail de l'utilisateur

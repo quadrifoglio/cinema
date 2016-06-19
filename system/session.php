@@ -26,6 +26,18 @@ class Session {
 	}
 
 	/*
+	 * Retourne true si la session courante est admin
+	 */
+	public static function admin() {
+		$ss = Session::get();
+		if(!$ss) {
+			return false;
+		}
+
+		return $ss["clientadmin"] == 1;
+	}
+
+	/*
 	 * Démarre une nouvelle session pour l'utilisateur spécifié
 	 * @param $clientId ID du client pour lequel une session doit être crée
 	 */

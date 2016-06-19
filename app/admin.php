@@ -4,7 +4,7 @@ require_once "system/session.php";
 require_once "models/admin.php";
 
 $adminDash = function($request) {
-	$ss = Session::get();
+	if(!Session::admin()) redirect("/");
 
 	$vars = [
 		"page" => "dashboard",
@@ -18,7 +18,7 @@ $adminDash = function($request) {
 };
 
 $adminFilms = function($request) {
-	$ss = Session::get();
+	if(!Session::admin()) redirect("/");
 
 	$vars = [
 		"page" => "films",
@@ -43,8 +43,8 @@ $adminFilms = function($request) {
 };
 
 $adminFilmPost = function($request) {
+	if(!Session::admin()) redirect("/");
 	$id = $request->getVar("id");
-	$ss = Session::get();
 
 	$title = $_POST["title"];
 	$release = $_POST["release"];
@@ -75,8 +75,8 @@ $adminFilmPost = function($request) {
 };
 
 $adminFilmStaffAdd = function($request) {
+	if(!Session::admin()) redirect("/");
 	$id = $request->getVar("id");
-	$ss = Session::get();
 
 	$role = $_POST["role"];
 	$person = $_POST["person"];
@@ -97,8 +97,8 @@ $adminFilmStaffAdd = function($request) {
 };
 
 $adminFilmStaffDel = function($request) {
+	if(!Session::admin()) redirect("/");
 	$id = $request->getVar("id");
-	$ss = Session::get();
 
 	$person = $_POST["person"];
 
@@ -116,7 +116,7 @@ $adminFilmStaffDel = function($request) {
 };
 
 $adminScreenings = function($request) {
-	$ss = Session::get();
+	if(!Session::admin()) redirect("/");
 
 	$vars = [
 		"page" => "screenings",
@@ -129,7 +129,7 @@ $adminScreenings = function($request) {
 };
 
 $adminScreeningsRoomAdd = function($request) {
-	$ss = Session::get();
+	if(!Session::admin()) redirect("/");
 
 	$id = intval($_POST["id"]);
 	$cap = intval($_POST["cap"]);
@@ -148,8 +148,8 @@ $adminScreeningsRoomAdd = function($request) {
 };
 
 $adminScreeningsRoomDel = function($request) {
+	if(!Session::admin()) redirect("/");
 	$id = intval($request->getVar("id"));
-	$ss = Session::get();
 
 	if($id == 0) {
 		render("views/admin/error.php", ["message" => "Formulaire invalide"], "views/admin/base.php");
@@ -165,7 +165,7 @@ $adminScreeningsRoomDel = function($request) {
 };
 
 $adminScreeningsAdd = function($request) {
-	$ss = Session::get();
+	if(!Session::admin()) redirect("/");
 
 	$room = intval($_POST["room"]);
 	$film = intval($_POST["film"]);
@@ -186,8 +186,8 @@ $adminScreeningsAdd = function($request) {
 };
 
 $adminScreeningsDel = function($request) {
+	if(!Session::admin()) redirect("/");
 	$id = intval($request->getVar("id"));
-	$ss = Session::get();
 
 	if($id == 0) {
 		render("views/admin/error.php", ["message" => "Formulaire invalide"], "views/admin/base.php");
@@ -203,7 +203,7 @@ $adminScreeningsDel = function($request) {
 };
 
 $adminClients = function($request) {
-	$ss = Session::get();
+	if(!Session::admin()) redirect("/");
 
 	$vars = [
 		"page" => "clients"

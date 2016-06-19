@@ -29,7 +29,8 @@ CREATE TABLE client (
 	ClientFirstName VARCHAR(50) NOT NULL,
 	ClientLastName VARCHAR(50) NOT NULL,
 	ClientAge INTEGER NOT NULL,
-	ClientCity VARCHAR(50)
+	ClientCity VARCHAR(50),
+	ClientAdmin SMALLINT NOT NULL DEFAULT 0
 );
 
 CREATE TABLE session (
