@@ -62,6 +62,14 @@ function modelAdminDelRoom($id) {
 }
 
 /*
+ * Lister les tarifs
+ */
+function modelAdminListRates() {
+	$db = Database::get();
+	return $db->request("SELECT * FROM rate ORDER BY RateID", []);
+}
+
+/*
  * Enregister un tarif
  * @param $name Nom
  * @param $price Prix
@@ -69,6 +77,15 @@ function modelAdminDelRoom($id) {
 function modelAdminAddRate($name, $price) {
 	$db = Database::get();
 	return $db->request("INSERT INTO rate (RateName, RatePrice) VALUES (?, ?)", [$name, $price]);
+}
+
+/*
+ * Supprimer un tarif
+ * @param $id ID du tarif
+ */
+function modelAdminDelRate($id) {
+	$db = Database::get();
+	return $db->request("DELETE FROM rate WHERE RateID = ?", [$id]);
 }
 
 /*

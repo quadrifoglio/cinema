@@ -44,5 +44,9 @@ $router->get("/admin/screenings/room/delete/{id}", $adminScreeningsRoomDel);
 $router->post("/admin/screenings/add", $adminScreeningsAdd);
 $router->get("/admin/screenings/delete/{id}", $adminScreeningsDel);
 
+$router->get("/admin/rates", $adminRates);
+$router->post("/admin/rates", $adminRatePost);
+$router->get("/admin/rates/delete/{id}", $adminRateDel);
+
 $response = $router->process(HttpRequest::get());
 $response->send();

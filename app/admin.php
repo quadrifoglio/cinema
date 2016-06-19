@@ -232,12 +232,49 @@ $adminScreeningsDel = function($request) {
 	redirect("/admin/screenings");
 };
 
-$adminClients = function($request) {
+$adminRates = function($request) {
 	if(!Session::admin()) redirect("/");
 
 	$vars = [
-		"page" => "clients"
+		"page" => "rates",
+		"rates" => modelAdminListRates()
 	];
 
-	render("views/admin/clients.php", $vars, "views/admin/base.php");
+	render("views/admin/rates.php", $vars, "views/admin/base.php");
+};
+
+$adminRatePost = function($request) {
+	if(!Session::admin()) redirect("/");
+
+	$name = $_POST["name"];
+	$price = floatval($_POST["price"]);
+
+	if(strlen($name) == 0 || $price == 0) {
+		render("views/admin/error.php", ["message" => "Formulaire invalide"], "views/admin/base.php");
+		exit();
+	}
+
+	if(!modelAdminAddRate($name, $price)) {
+		render("views/admin/error.php", ["message" => "Erreur d'insertion en base de données"], "views/admin/base.php");
+		exit();
+	}
+
+	redirect("/admin/rates");
+};
+
+$adminRateDel = function($request) {
+	if(!Session::admin()) redirect("/");
+	$id = intval($request->getVar("id"));
+
+	if($id == 0) {
+		render("views/admin/error.php", ["message" => "Formulaire invalide"], "views/admin/base.php");
+		exit();
+	}
+
+	if(!modelAdminDelRate($id)) {
+		render("views/admin/error.php", ["message" => "Erreur d'insertion en base de données"], "views/admin/base.php");
+		exit();
+	}
+
+	redirect("/admin/rates");
 };

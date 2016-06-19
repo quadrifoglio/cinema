@@ -36,6 +36,7 @@
 						<li class="<?= @$page == "dashboard" ? "active" : "" ?>"><a href="<?= ROUTER_PREFIX ?>/admin">Tableau de bord</a></li>
 						<li class="<?= @$page == "films" ? "active" : "" ?>"><a href="<?= ROUTER_PREFIX ?>/admin/films">Gestion des films</a></li>
 						<li class="<?= @$page == "screenings" ? "active" : "" ?>"><a href="<?= ROUTER_PREFIX ?>/admin/screenings">Gestion des salles/projections</a></li>
+						<li class="<?= @$page == "rates" ? "active" : "" ?>"><a href="<?= ROUTER_PREFIX ?>/admin/rates">Gestion des tarifs</a></li>
 					</ul>
 				</div>
 
