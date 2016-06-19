@@ -3,6 +3,38 @@
 require_once "system/database.php";
 
 /*
+ * Compter les salles
+ */
+function modelAdminCountRooms() {
+	$db = Database::get();
+	return $db->request("SELECT COUNT(*) FROM room", [])[0][0];
+}
+
+/*
+ * Compter les films
+ */
+function modelAdminCountFilms() {
+	$db = Database::get();
+	return $db->request("SELECT COUNT(*) FROM film", [])[0][0];
+}
+
+/*
+ * Compter les projections
+ */
+function modelAdminCountScreenings() {
+	$db = Database::get();
+	return $db->request("SELECT COUNT(*) FROM screening", [])[0][0];
+}
+
+/*
+ * Compter les clients
+ */
+function modelAdminCountClients() {
+	$db = Database::get();
+	return $db->request("SELECT COUNT(*) FROM client", [])[0][0];
+}
+
+/*
  * Lister les films
  */
 function modelAdminListFilms() {

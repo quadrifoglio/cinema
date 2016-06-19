@@ -8,10 +8,10 @@ $adminDash = function($request) {
 
 	$vars = [
 		"page" => "dashboard",
-		"numRooms" => 5,
-		"numFilms" => 5,
-		"numScrs" => 5,
-		"numClients" => 5
+		"numRooms" => modelAdminCountRooms(),
+		"numFilms" => modelAdminCountFilms(),
+		"numScrs" => modelAdminCountScreenings(),
+		"numClients" => modelAdminCountClients()
 	];
 
 	render("views/admin/dashboard.php", $vars, "views/admin/base.php");
