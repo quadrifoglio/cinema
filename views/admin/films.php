@@ -21,7 +21,7 @@
 					<td><?= $f["filmtrailer"] ?></td>
 					<td>
 						<a class="btn btn-warning" href="<?= ROUTER_PREFIX ?>/admin/films?editFilmId=<?= $f["filmid"] ?>">Modifiter</a>
-						<a class="btn btn-danger" href="<?= ROUTER_PREFIX ?>/admin/delfilm/<?= $f["filmid"] ?>">Supprimer</a>
+						<a class="btn btn-danger" href="<?= ROUTER_PREFIX ?>/admin/films/delete/<?= $f["filmid"] ?>">Supprimer</a>
 					</td>
 				</tr>
 			<?php endforeach; ?>
@@ -114,3 +114,18 @@
 		<button type="submit" class="btn btn-success">Valider</button>
 	</form>
 <?php endif; ?>
+
+<h2 class="sub-header">Ajouter une personnalité</h2>
+<form method="post" action="<?= ROUTER_PREFIX ?>/admin/films/person/add">
+	<div class="form-group">
+		<label for="fname">Prénom</label>
+		<input type="text" class="form-control" id="fname" name="fname" placeholder="Prénom">
+	</div>
+
+	<div class="form-group">
+		<label for="lname">Nom</label>
+		<input type="text" class="form-control" id="lname" name="lname" placeholder="Nom">
+	</div>
+
+	<button type="submit" class="btn btn-success">Valider</button>
+</form>

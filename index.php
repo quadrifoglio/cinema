@@ -1,7 +1,7 @@
 <?php
 
 define("ROUTER_PREFIX", "");
-define("WEBROOT", "http://cinema.tabarnouche.wha.la/webroot");
+define("WEBROOT", "http://cinema.toh.info/webroot");
 
 require_once "system/router.php";
 require_once "app/index.php";
@@ -33,8 +33,10 @@ $router->get("/admin", $adminDash);
 $router->get("/admin/films", $adminFilms);
 $router->post("/admin/films", $adminFilmPost);
 $router->post("/admin/films/{id}", $adminFilmPost);
+$router->post("/admin/films/person/add", $adminFilmPersonAdd);
 $router->post("/admin/films/staff/add/{id}", $adminFilmStaffAdd);
 $router->post("/admin/films/staff/delete/{id}", $adminFilmStaffDel);
+$router->get("/admin/films/delete/{id}", $adminFilmDel);
 
 $router->get("/admin/screenings", $adminScreenings);
 $router->post("/admin/screenings/room/add", $adminScreeningsRoomAdd);

@@ -74,14 +74,44 @@ $adminFilmPost = function($request) {
 	redirect("/admin/films");
 };
 
+$adminFilmDel = function($request) {
+	if(!Session::admin()) redirect("/");
+	$id = $request->getVar("id");
+
+	if(!modelAdminDelFilm($id)) {
+		render("views/admin/error.php", ["message" => "Erreur lors de la suppression"], "views/admin/base.php");
+		exit();
+	}
+
+	redirect("/admin/films");
+};
+
+$adminFilmPersonAdd = function($request) {
+	if(!Session::admin()) redirect("/");
+	$id = $request->getVar("id");
+
+	$fname = $_POST["fname"];
+	$lname = $_POST["lname"];
+
+	if(strlen($fname) == 0 || strlen($lname) == 0) {
+		render("views/admin/error.php", ["message" => "Formulaire invalide"], "views/admin/base.php");
+		exit();
+	}
+
+	if(!modelAdminAddPerson($fname, $lname)) {
+		render("views/admin/error.php", ["message" => "Erreur d'insertion en base de données"], "views/admin/base.php");
+		exit();
+	}
+	
+	redirect("/admin/films");
+};
+
 $adminFilmStaffAdd = function($request) {
 	if(!Session::admin()) redirect("/");
 	$id = $request->getVar("id");
 
 	$role = $_POST["role"];
 	$person = $_POST["person"];
-
-	var_dump($_POST);
 
 	if($role == 0 || $person == 0) {
 		render("views/admin/error.php", ["message" => "Formulaire invalide"], "views/admin/base.php");

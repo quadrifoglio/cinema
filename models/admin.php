@@ -75,6 +75,15 @@ function modelAdminEditFilm($id, $title, $release, $desc, $trailer) {
 }
 
 /*
+ * Supprimer un film
+ * @param $id ID du film
+ */
+function modelAdminDelFilm($id) {
+	$db = Database::get();
+	return $db->request("DELETE FROM film WHERE FilmID = ?", [$id]);
+}
+
+/*
  * Lister les rôles
  */
 function modelAdminListRoles() {
