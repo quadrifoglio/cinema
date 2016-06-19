@@ -65,6 +65,22 @@ function redirect($url) {
 }
 
 /*
+ * Sécuriser les sorties
+ * Failles XSS
+ * @param $data Reference vers l'objet à sécuriser (array ou string)
+ */
+function secure(&$data) {
+	if(is_string($data)) {
+		$data = htmlentities($data);
+	}
+	else if(is_array($data)) {
+		foreach($data as $k => $v) {
+			secure($data[$k]);
+		}
+	}
+}
+
+/*
  * Charger un fichier de "vue", charger les variables du tableau $vars
  * afin qu'elles soit accessible depuis la vue
  */
@@ -74,10 +90,7 @@ function render($view, $vars = [], $base = true) {
 	if(!isset($vars["title"]))
 		$vars["title"] = "Cinema";
 
-	foreach($vars as $k => $v) {
-		$vars[$k] = is_string($v) ? htmlspecialchars($v, ENT_QUOTES, "UTF-8") : $v;
-	}
-
+	secure($vars);
 	extract($vars);
 
 	if($base === true)

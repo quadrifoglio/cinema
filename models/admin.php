@@ -3,12 +3,30 @@
 require_once "system/database.php";
 
 /*
+ * Lister les films
+ */
+function modelAdminListFilms() {
+	$db = Database::get();
+	return $db->request("SELECT * FROM film ORDER BY FilmRelease DESC", []);
+}
+
+/*
  * Enregister une salle
+ * @param $id ID (numero) de la salle
  * @param $cap Capacité
  */
-function modelAdminAddRoom($cap) {
+function modelAdminAddRoom($id, $cap) {
 	$db = Database::get();
-	return $db->request("INSERT INTO room (RoomCap) VALUES (?)", [$cap]);
+	return $db->request("INSERT INTO room VALUES (?, ?)", [$id, $cap]);
+}
+
+/*
+ * Supprimer une salle
+ * @param $id ID de la salle
+ */
+function modelAdminDelRoom($id) {
+	$db = Database::get();
+	return $db->request("DELETE FROM room WHERE RoomID = ?", [$id]);
 }
 
 /*
@@ -44,6 +62,35 @@ function modelAdminAddFilm($title, $release, $desc, $trailer) {
 }
 
 /*
+ * Editer un film
+ * @param $id ID du film
+ * @param $title Titre
+ * @param $release Date de sortie
+ * @param $desc Résumé
+ * @param $trailer URL Youtube de la bance annonce
+ */
+function modelAdminEditFilm($id, $title, $release, $desc, $trailer) {
+	$db = Database::get();
+	return $db->request("UPDATE film SET FilmTitle = ?, FilmRelease = ?, FilmDesc = ?, FilmTrailer = ? WHERE FilmId = ?", [$title, $release, $desc, $trailer, $id]);
+}
+
+/*
+ * Lister les rôles
+ */
+function modelAdminListRoles() {
+	$db = Database::get();
+	return $db->request("SELECT * FROM role", []);
+}
+
+/*
+ * Lister les personnalitées
+ */
+function modelAdminListPersons() {
+	$db = Database::get();
+	return $db->request("SELECT * FROM person", []);
+}
+
+/*
  * Enregister un membre du staff d'un film
  * @param $filmId ID du film
  * @param $roleId ID du role
@@ -52,6 +99,36 @@ function modelAdminAddFilm($title, $release, $desc, $trailer) {
 function modelAdminAddStaffMember($filmId, $roleId, $personId) {
 	$db = Database::get();
 	return $db->request("INSERT INTO staff (FilmIDRef, RoleIDRef, PersonIDRef) VALUES (?, ?, ?)", [$filmId, $roleId, $personId]);
+}
+
+/*
+ * Supprimer un membre du staff d'un film
+ * @param $filmId ID du film
+ * @param $personId ID de la personnalitée
+ */
+function modelAdminDelStaffMember($filmId, $personId) {
+	$db = Database::get();
+	return $db->request("DELETE FROM staff WHERE FilmIDRef = ? AND PersonIDRef = ?", [$filmId, $personId]);
+}
+
+/*
+ * Lister les salles
+ */
+function modelAdminListRooms() {
+	$db = Database::get();
+	return $db->request("SELECT * FROM room ORDER BY RoomID", []);
+}
+
+/*
+ * Lister les projection
+ */
+function modelAdminListScreenings() {
+	$db = Database::get();
+	$sql = "SELECT ScreeningID, FilmTitle, ScreeningDate, ScreeningTime, ScreeningRoom FROM screening " .
+		   "INNER JOIN film ON ScreeningFilm = FilmID " .
+		   "ORDER BY ScreeningDate DESC";
+
+	return $db->request($sql, []);
 }
 
 /*
@@ -64,4 +141,13 @@ function modelAdminAddStaffMember($filmId, $roleId, $personId) {
 function modelAdminAddScreening($roomId, $filmId, $date, $time) {
 	$db = Database::get();
 	return $db->request("INSERT INTO screening (ScreeningRoom, ScreeningFilm, ScreeningDate, ScreeningTime) VALUES (?, ?, ?, ?)", [$roomId, $filmId, $date, $time]);
+}
+
+/*
+ * Supprimer une projection
+ * @param $id ID de la projection
+ */
+function modelAdminDelScreening($id) {
+	$db = Database::get();
+	return $db->request("DELETE FROM screening WHERE ScreeningID = ?", [$id]);
 }

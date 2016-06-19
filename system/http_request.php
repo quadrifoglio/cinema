@@ -48,6 +48,11 @@ class HttpRequest {
 	public static function get() {
 		$request = new HttpRequest($_SERVER["REQUEST_METHOD"], $_SERVER["REQUEST_URI"], null);
 
+		$i = strpos($request->uri, "?");
+		if($i) {
+			$request->uri = substr($request->uri, 0, $i);
+		}
+
 		foreach(getallheaders() as $name => $value) {
 			$request->setHeader($name, $value);
 		}

@@ -77,7 +77,7 @@ function modelGetScreeningsByDate($filmId) {
 function modelGetFilmStaff($filmId, $more = false) {
 	$db = Database::get();
 
-	$sql = "SELECT RoleName, PersonFirstName, PersonLastName " .
+	$sql = "SELECT RoleName, PersonID, PersonFirstName, PersonLastName " .
 		   "FROM staff INNER JOIN role ON RoleIdRef=RoleId ".
 		   "INNER JOIN person ON PersonId=PersonIdRef ".
 		   "WHERE FilmIdRef = ?";

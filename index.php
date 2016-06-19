@@ -24,10 +24,22 @@ $router->get("/book/cancel/{id}", $bookCancel);
 $router->get("/register", $register);
 $router->get("/login", $login);
 $router->post("/login", $loginPost);
+$router->get("/client", $clientPanel);
 $router->get("/logout", $logout);
 
-$router->get("/client", $clientPanel);
-$router->get("/admin", $admin);
+$router->get("/admin", $adminDash);
+
+$router->get("/admin/films", $adminFilms);
+$router->post("/admin/films", $adminFilmPost);
+$router->post("/admin/films/{id}", $adminFilmPost);
+$router->post("/admin/films/staff/add/{id}", $adminFilmStaffAdd);
+$router->post("/admin/films/staff/delete/{id}", $adminFilmStaffDel);
+
+$router->get("/admin/screenings", $adminScreenings);
+$router->post("/admin/screenings/room/add", $adminScreeningsRoomAdd);
+$router->get("/admin/screenings/room/delete/{id}", $adminScreeningsRoomDel);
+$router->post("/admin/screenings/add", $adminScreeningsAdd);
+$router->get("/admin/screenings/delete/{id}", $adminScreeningsDel);
 
 $response = $router->process(HttpRequest::get());
 $response->send();
