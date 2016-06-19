@@ -4,5 +4,5 @@ require_once "system/session.php";
 
 $admin = function($request) {
 	$ss = Session::get();
-	render("views/admin.php", [], false);
+	render("views/admin/dashboard.php", [], "views/admin/base.php");
 };

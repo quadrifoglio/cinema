@@ -69,12 +69,10 @@ function redirect($url) {
  * afin qu'elles soit accessible depuis la vue
  */
 function render($view, $vars = [], $base = true) {
-	if(isset($vars["view"])) {
+	if(isset($vars["view"]))
 		unset($vars["view"]);
-	}
-	if(!isset($vars["title"])) {
+	if(!isset($vars["title"]))
 		$vars["title"] = "Cinema";
-	}
 
 	foreach($vars as $k => $v) {
 		$vars[$k] = is_string($v) ? htmlspecialchars($v, ENT_QUOTES, "UTF-8") : $v;
@@ -82,8 +80,10 @@ function render($view, $vars = [], $base = true) {
 
 	extract($vars);
 
-	if($base)
+	if($base === true)
 		include "views/base.php";
+	else if(is_string($base))
+		include $base;
 	else
 		include $view;
 }
