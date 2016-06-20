@@ -43,6 +43,14 @@ function modelAdminListFilms() {
 }
 
 /*
+ * ID de film disponible
+ */
+function modelAdminFreeFilmID() {
+	$db = Database::get();
+	return $db->request("SELECT FilmID FROM film ORDER BY FilmID DESC LIMIT 1", [])[0]["filmid"] + 1;
+}
+
+/*
  * Enregister une salle
  * @param $id ID (numero) de la salle
  * @param $cap Capacité

@@ -30,7 +30,7 @@
 </div>
 
 <h2 class="sub-header"><?= isset($editFilmId) ? "Modifier un film" : "Ajouter un film" ?></h2>
-<form method="post" action="<?= ROUTER_PREFIX ?>/admin/films<?= isset($editFilmId) ? "/".$editFilmId : "/" ?>">
+<form enctype="multipart/form-data" method="post" action="<?= ROUTER_PREFIX ?>/admin/films<?= isset($editFilmId) ? "/".$editFilmId : "/" ?>">
 	<div class="form-group">
 		<label for="title">Titre</label>
 		<input type="text" class="form-control" id="title" name="title" placeholder="Titre du film" value="<?= isset($editFilmTitle) ? $editFilmTitle : "" ?>">
@@ -49,6 +49,11 @@
 	<div class="form-group">
 		<label for="trailer">Bande annonce</label>
 		<input type="text" class="form-control" id="trailer" name="trailer" placeholder="URL de la bande annonce" value="<?= isset($editFilmTrailer) ? $editFilmTrailer : "" ?>">
+	</div>
+
+	<div class="form-group">
+		<label for="thumb">Miniature</label>
+		<input type="file" id="thumb" name="thumb">
 	</div>
 
 	<button type="submit" class="btn btn-success">Valider</button>

@@ -50,10 +50,31 @@ $adminFilmPost = function($request) {
 	$release = $_POST["release"];
 	$desc = $_POST["desc"];
 	$trailer = $_POST["trailer"];
-
 	if(strlen($title) == 0 || strlen($release) == 0 || strlen($desc) == 0 || strlen($trailer) == 0) {
 		render("views/admin/error.php", ["message" => "Formulaire invalide"], "views/admin/base.php");
 		exit();
+	}
+
+	if(isset($_FILES["thumb"])) {
+		$thumb = $_FILES["thumb"];
+		$path = realpath(__dir__ . "/../webroot/img");
+		$id = modelAdminFreeFilmID();
+		$ext = pathinfo($thumb["name"], PATHINFO_EXTENSION);
+
+		if($id > 0 && $ext == "jpg" && $thumb["size"] < 102400) {
+			move_uploaded_file($thumb["tmp_name"], $path . "/" . $id . ".jpg");
+		}
+	}
+
+	if(isset($_FILES["poster"])) {
+		$poster = $_FILES["poster"];
+		$path = realpath(__dir__ . "/../webroot/img");
+		$id = modelAdminFreeFilmID();
+		$ext = pathinfo($poster["name"], PATHINFO_EXTENSION);
+
+		if($id > 0 && $ext == "jpg" && $poster["size"] < 512000) {
+			move_uploaded_file($poster["tmp_name"], $path . "/" . $id . ".poster.jpg");
+		}
 	}
 	
 	if($id)
