@@ -56,6 +56,11 @@
 		<input type="file" id="thumb" name="thumb">
 	</div>
 
+	<div class="form-group">
+		<label for="poster">Poster</label>
+		<input type="file" id="poster" name="poster">
+	</div>
+
 	<button type="submit" class="btn btn-success">Valider</button>
 </form>
 

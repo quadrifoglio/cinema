@@ -45,9 +45,9 @@ function modelAdminListFilms() {
 /*
  * ID de film disponible
  */
-function modelAdminFreeFilmID() {
+function modelAdminLastFilmID() {
 	$db = Database::get();
-	return $db->request("SELECT FilmID FROM film ORDER BY FilmID DESC LIMIT 1", [])[0]["filmid"] + 1;
+	return $db->request("SELECT FilmID From film ORDER BY FilmID DESC LIMIT 1", [])[0][0];
 }
 
 /*

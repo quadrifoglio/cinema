@@ -54,14 +54,25 @@ $adminFilmPost = function($request) {
 		render("views/admin/error.php", ["message" => "Formulaire invalide"], "views/admin/base.php");
 		exit();
 	}
+	
+	if($id) {
+		$ok = modelAdminEditFilm($id, $title, $release, $desc, $trailer);
+		if(!$ok) {
+			render("views/admin/error.php", ["message" => "Erreur d'insertion en base de données"], "views/admin/base.php");
+			exit();
+		}
+	}
+	else {
+		modelAdminAddFilm($title, $release, $desc, $trailer);
+		$id = modelAdminLastFilmID();
+	}
 
 	if(isset($_FILES["thumb"])) {
 		$thumb = $_FILES["thumb"];
 		$path = realpath(__dir__ . "/../webroot/img");
-		$id = modelAdminFreeFilmID();
 		$ext = pathinfo($thumb["name"], PATHINFO_EXTENSION);
 
-		if($id > 0 && $ext == "jpg" && $thumb["size"] < 102400) {
+		if($ext == "jpg" && $thumb["size"] < 512000) {
 			move_uploaded_file($thumb["tmp_name"], $path . "/" . $id . ".jpg");
 		}
 	}
@@ -69,22 +80,11 @@ $adminFilmPost = function($request) {
 	if(isset($_FILES["poster"])) {
 		$poster = $_FILES["poster"];
 		$path = realpath(__dir__ . "/../webroot/img");
-		$id = modelAdminFreeFilmID();
 		$ext = pathinfo($poster["name"], PATHINFO_EXTENSION);
 
-		if($id > 0 && $ext == "jpg" && $poster["size"] < 512000) {
+		if($ext == "jpg" && $poster["size"] < 512000) {
 			move_uploaded_file($poster["tmp_name"], $path . "/" . $id . ".poster.jpg");
 		}
-	}
-	
-	if($id)
-		$ok = modelAdminEditFilm($id, $title, $release, $desc, $trailer);
-	else
-		$ok = modelAdminAddFilm($title, $release, $desc, $trailer);
-
-	if(!$ok) {
-		render("views/admin/error.php", ["message" => "Erreur d'insertion en base de données"], "views/admin/base.php");
-		exit();
 	}
 
 	$vars = [
