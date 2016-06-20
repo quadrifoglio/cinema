@@ -76,13 +76,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach($editFilmStaff as $s): ?>
+				<?php if(is_array($editFilmStaff)): foreach($editFilmStaff as $s): ?>
 					<tr>
 						<td><?= $s["rolename"] ?></td>
 						<td><?= $s["personfirstname"] ?></td>
 						<td><?= $s["personlastname"] ?></td>
 					</tr>
-				<?php endforeach; ?>
+				<?php endforeach; endif; ?>
 			</tbody>
 		</table>
 	</div>

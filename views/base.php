@@ -30,7 +30,7 @@
 		<?php include $view; ?>
 
 		<footer class="footer">
-			<p class="footer-left">Copyleft &copy William Peal - 2016</p>
+			<p class="footer-left">Copyleft &copy CineQuanone - 2016</p>
 
 			<div class="footer-right">
 				<?php if(Session::get()): ?>
